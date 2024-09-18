@@ -1,6 +1,6 @@
 name: gitlab
 arguments:
-  license: GPL-3.0
+  license: LGPL-3.0
   org: jaredallard
   library: true
 modules:
