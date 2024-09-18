@@ -1,0 +1,7 @@
+name: gitlab
+arguments:
+  license: GPL-3.0
+  org: jaredallard
+  library: true
+modules:
+  - name: github.com/rgst-io/stencil-golang

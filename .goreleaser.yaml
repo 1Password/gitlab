@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+project_name: gitlab
+report_sizes: true
+metadata:
+  mod_timestamp: "{{ .CommitTimestamp }}"
+builds:
+  - skip: true
+checksum:
+  name_template: "checksums.txt"
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  use: git
+release:
+  prerelease: "auto"
+  footer: |-
+    **Full Changelog**: https://github.com/jaredallard/gitlab/compare/{{ .PreviousTag }}...{{ .Tag }}
+
+## <<Stencil::Block(extraReleaseOpts)>>
+
+## <</Stencil::Block>>
