@@ -20,7 +20,12 @@
 
 package gitlab
 
+import _gitlab "github.com/xanzy/go-gitlab"
+
 // Ptr returns a pointer to the value passed in.
 func Ptr[T any](v T) *T {
 	return &v
 }
+
+// WithBaseURL is an alias to [_gitlab.WithBaseURL]
+var WithBaseURL = _gitlab.WithBaseURL
