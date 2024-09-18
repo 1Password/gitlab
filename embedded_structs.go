@@ -127,22 +127,22 @@ type MergeEventProject struct {
 // MergeEventChangesString is a duplicate of multiple embedded structs
 // that were under [MergeEvent.Changes]. This is for string types.
 type MergeEventChangesString struct {
-	Previous bool "json:\"previous\""
-	Current  bool "json:\"current\""
+	Previous string `json:"previous"`
+	Current  string `json:"current"`
 }
 
 // MergeEventChangesBool is a duplicate of multiple embedded structs
 // that were under [MergeEvent.Changes]. This is for bool types.
 type MergeEventChangesBool struct {
-	Previous bool "json:\"previous\""
-	Current  bool "json:\"current\""
+	Previous bool `json:"previous"`
+	Current  bool `json:"current"`
 }
 
 // MergeEventChangesInt is a duplicate of multiple embedded structs
 // that were under [MergeEvent.Changes]. This is for int types.
 type MergeEventChangesInt struct {
-	Previous int "json:\"previous\""
-	Current  int "json:\"current\""
+	Previous int `json:"previous"`
+	Current  int `json:"current"`
 }
 
 // MergeEventChanges is a duplicate of the embedded struct at
