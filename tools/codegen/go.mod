@@ -3,7 +3,6 @@ module github.com/jaredallard/gitlab/tools/codegen
 go 1.23
 
 require (
-	github.com/davecgh/go-spew v1.1.1
 	github.com/jaredallard/cmdexec v1.2.0
 	go.rgst.io/stencil v0.10.2
 	golang.org/x/tools v0.21.0

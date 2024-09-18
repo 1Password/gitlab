@@ -29,8 +29,24 @@ Due to the original [go-gitlab] `Client` struct using embedded structs
 instead of interfaces, you must use the `NewClient` call from this
 package.
 
+## Development
+
+All of the code in this repository is generated through the
+`tools/codegen` CLI. To change anything, you must add it to that CLI
+tool.
+
+The templates used can be found in the `embed` directory in the same CLI
+directory.
+
+## Special Thanks
+
+Huge special thanks to the [mockgen] and [ifacemaker] project for making
+this possible and saving me a lot of pain w/ the ast package :)
+
 ## License
 
 LGPL-3.0
 
 [go-gitlab]: https://github.com/xanzy/go-gitlab
+[mockgen]: https://pkg.go.dev/go.uber.org/mock/mockgen
+[ifacemaker]: https://github.com/vburenin/ifacemaker@latest

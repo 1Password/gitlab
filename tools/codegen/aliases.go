@@ -1,3 +1,21 @@
+// Copyright (C) 2024 gitlab contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this program. If not, see
+// <https://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: LGPL-3.0
+
 package main
 
 import (
@@ -18,7 +36,7 @@ import "github.com/xanzy/go-gitlab"
 {{- range .Aliases }}
 
 // {{ .Name }} is an alias to [gitlab.{{ .Name }}]
-type {{ .Name }} gitlab.{{ .Name }}
+type {{ .Name }} = gitlab.{{ .Name }}
 
 {{- end }}
 `
@@ -31,7 +49,7 @@ type Alias struct {
 
 // generateAliases generates type aliases for all exported types in the
 // go-gitlab package. This excludes any service types.
-func generateAliases(log slogext.Logger, services []string, pkgs []*packages.Package) error {
+func generateAliases(log slogext.Logger, services []*Service, pkgs []*packages.Package) error {
 	aliasesTpl, err := template.New("aliases").Parse(aliasesTpl)
 	if err != nil {
 		return fmt.Errorf("failed to parse template: %w", err)
@@ -40,8 +58,11 @@ func generateAliases(log slogext.Logger, services []string, pkgs []*packages.Pac
 	// Convert the services to a map for faster lookups.
 	serviceMap := make(map[string]struct{}, len(services))
 	for _, service := range services {
-		serviceMap[service] = struct{}{}
+		serviceMap[service.Name] = struct{}{}
 	}
+
+	// Always skip the Client type.
+	serviceMap["Client"] = struct{}{}
 
 	aliases := make([]Alias, 0)
 	for _, pkg := range pkgs {

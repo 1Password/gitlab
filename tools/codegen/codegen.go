@@ -1,9 +1,26 @@
+// Copyright (C) 2024 gitlab contributors
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as
+// published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public
+// License along with this program. If not, see
+// <https://www.gnu.org/licenses/>.
+//
+// SPDX-License-Identifier: LGPL-3.0
+
 package main
 
 import (
 	"fmt"
 	"go/ast"
-	"maps"
 	"os"
 	"path/filepath"
 	"slices"
@@ -28,10 +45,26 @@ func main() {
 	}
 }
 
+type Service struct {
+	// Name of the service as it appeared on the Type.
+	Name string
+
+	// Accessor is the name of the field on the client to access the
+	// service. This is the name of the field on the go-gitlab.Client
+	// struct.
+	Accessor string
+}
+
+// PrivateName returns a private version of the service name.
+func (s *Service) PrivateName() string {
+	return strings.ToLower(s.Name[:1]) + s.Name[1:]
+}
+
 // getServices returns all of the "Service" fields on the
 // [gitlab.Client] provided by go-gitlab.
-func getServices(_ slogext.Logger, pkgs []*packages.Package) []string {
-	services := make(map[string]struct{}, 0)
+func getServices(log slogext.Logger, pkgs []*packages.Package) []*Service {
+	services := make([]*Service, 0)
+	servicesByName := make(map[string]struct{})
 	for _, pkg := range pkgs {
 		for _, file := range pkg.Syntax {
 			for _, decl := range file.Decls {
@@ -69,7 +102,16 @@ func getServices(_ slogext.Logger, pkgs []*packages.Package) []string {
 								continue
 							}
 
-							services[shortTypeName] = struct{}{}
+							log.Debug("Discovered service", "service.name", shortTypeName, "service.accessor", name.Name)
+							if _, ok := servicesByName[shortTypeName]; ok {
+								continue
+							}
+
+							servicesByName[shortTypeName] = struct{}{}
+							services = append(services, &Service{
+								Name:     shortTypeName,
+								Accessor: name.Name,
+							})
 						}
 					}
 				}
@@ -77,16 +119,18 @@ func getServices(_ slogext.Logger, pkgs []*packages.Package) []string {
 		}
 	}
 
-	serviceList := slices.Collect(maps.Keys(services))
-	slices.Sort(serviceList)
-	return serviceList
+	// Sort the services by name.
+	slices.SortFunc(services, func(i, j *Service) int {
+		return strings.Compare(i.Name, j.Name)
+	})
+	return services
 }
 
 // generateInterfaces creates an interface for each of the service types
 // passed by name to this function. The interfaces are generated using
 // 'ifacemaker' and are generated into the root directory of
 // the project.
-func generateInterfaces(log slogext.Logger, goGitlabDir string, services []string) error {
+func generateInterfaces(log slogext.Logger, goGitlabDir string, services []*Service) error {
 	files, err := filepath.Glob("*_inf.go")
 	if err != nil {
 		return fmt.Errorf("failed to glob existing interfaces: %w", err)
@@ -99,15 +143,15 @@ func generateInterfaces(log slogext.Logger, goGitlabDir string, services []strin
 	}
 
 	for _, service := range services {
-		log.Infof("Generating interface for %s", service)
+		log.Infof("Generating interface for %s", service.Name)
 		cmd := cmdexec.Command(
 			"ifacemaker",
 			"-f", goGitlabDir+"/*.go",
-			"-s", service,
-			"-i", service,
+			"-s", service.Name,
+			"-i", service.Name,
 			"-p", "gitlab",
-			"-y", service+" is an interface for [gitlab.Client."+service+"]",
-			"-o", strings.ToLower(service)+"_inf.go",
+			"-y", service.Name+" is an interface for [gitlab.Client."+service.Accessor+"]",
+			"-o", strings.ToLower(service.Name)+"_inf.go",
 		)
 		cmd.UseOSStreams(true)
 		if err := cmd.Run(); err != nil {
@@ -143,6 +187,19 @@ func generateMocks(log slogext.Logger) error {
 		cmd.UseOSStreams(true)
 		if err := cmd.Run(); err != nil {
 			return fmt.Errorf("failed to generate mock for %s: %w", file, err)
+		}
+
+		// Replace the gitlab import with the original package.
+		// TODO(jaredallard): Better version of this
+		b, err := os.ReadFile(filepath.Join("mocks", file))
+		if err != nil {
+			return fmt.Errorf("failed to read mock file: %w", err)
+		}
+
+		b = []byte(strings.ReplaceAll(string(b), `gitlab "github.com/jaredallard/gitlab"`, `gitlab "github.com/xanzy/go-gitlab"`))
+		//nolint:gosec // Why: OK.
+		if err := os.WriteFile(filepath.Join("mocks", file), b, 0o644); err != nil {
+			return fmt.Errorf("failed to write mock file: %w", err)
 		}
 	}
 
@@ -190,6 +247,10 @@ func entrypoint(log slogext.Logger) error {
 	}
 
 	if err := generateMocks(log); err != nil {
+		return err
+	}
+
+	if err := generateClients(log, services); err != nil {
 		return err
 	}
 
