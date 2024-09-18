@@ -15,12 +15,22 @@
 
 <br />
 
-Wrapper for go-gitlab that supports mocking.
+Wrapper for [go-gitlab] that supports mocking.
 
 ## Usage
 
-See our [Go docs](https://pkg.go.dev/github.com/jaredallard/gitlab).
+See our [Go docs](https://pkg.go.dev/github.com/jaredallard/gitlab) as
+well as the upstream [go-gitlab] documentation which this package
+provides.
+
+### Differences
+
+Due to the original [go-gitlab] `Client` struct using embedded structs
+instead of interfaces, you must use the `NewClient` call from this
+package.
 
 ## License
 
 LGPL-3.0
+
+[go-gitlab]: https://github.com/xanzy/go-gitlab
