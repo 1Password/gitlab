@@ -47,7 +47,6 @@ gl.MergeRequests().GetMergeRequest()
 You will also need to dereference `gitlab.Client` as it is now and
 interface instead of a struct.
 
-
 ```go
 // Original
 type MyStruct {

@@ -33,7 +33,7 @@ var _ Client = &MockClient{}
 // [NewMockClient].
 type MockClient struct {
 {{- range .Services }}
-	{{ .Name }}Mock *mocks.Mock{{ .Name }}
+	{{ .Name }}M *mocks.Mock{{ .Name }}
 {{- end }}
 }
 
@@ -43,7 +43,7 @@ func NewMockClient(t *testing.T) *MockClient {
 	m := gomock.NewController(t)
 	return &MockClient{
 		{{- range .Services }}
-		{{ .Name }}Mock:                mocks.NewMock{{ .Name }}(m),
+		{{ .Name }}M:                mocks.NewMock{{ .Name }}(m),
 		{{- end }}
 	}
 }
@@ -51,6 +51,6 @@ func NewMockClient(t *testing.T) *MockClient {
 {{- range .Services }}
 // {{ .Accessor }} returns a mocked [{{ .Name }}] service.
 func (m *MockClient) {{ .Accessor }}() {{ .Name }} {
-	return m.{{ .Name }}Mock
+	return m.{{ .Name }}M
 }
 {{- end }}
