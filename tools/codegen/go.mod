@@ -3,7 +3,7 @@ module github.com/jaredallard/gitlab/tools/codegen
 go 1.23
 
 require (
-	github.com/jaredallard/cmdexec v1.2.0
+	github.com/jaredallard/cmdexec v1.2.1
 	go.rgst.io/stencil v0.10.2
 	golang.org/x/tools v0.21.0
 )
