@@ -32,7 +32,7 @@ func ExampleNewMockClient() {
 
 	// Should be called once w/ the given arguments and return the given
 	// result.
-	gl.MergeRequestsServiceMock.EXPECT().
+	gl.MergeRequestsServiceM.EXPECT().
 		GetMergeRequest(1, 1, &gitlab.GetMergeRequestsOptions{}).
 		Return(&gitlab.MergeRequest{
 			ID: 1,
