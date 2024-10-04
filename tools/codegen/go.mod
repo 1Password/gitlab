@@ -5,7 +5,7 @@ go 1.23
 require (
 	github.com/jaredallard/cmdexec v1.2.1
 	go.rgst.io/stencil v0.11.0
-	golang.org/x/tools v0.25.0
+	golang.org/x/tools v0.26.0
 )
 
 require (
@@ -22,5 +22,5 @@ require (
 	golang.org/x/exp v0.0.0-20240529005216-23cca8864a10 // indirect
 	golang.org/x/mod v0.21.0 // indirect
 	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.25.0 // indirect
+	golang.org/x/sys v0.26.0 // indirect
 )
