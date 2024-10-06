@@ -254,6 +254,21 @@ type ServicesService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#delete-prometheus-service
 	DeletePrometheusService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
+	// GetRedmineService gets Redmine service settings for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#get-redmine-settings
+	GetRedmineService(pid interface{}, options ...RequestOptionFunc) (*RedmineService, *Response, error)
+	// SetRedmineService sets Redmine service for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#set-up-redmine
+	SetRedmineService(pid interface{}, opt *SetRedmineServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	// DeleteRedmineService deletes Redmine service for project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#disable-redmine
+	DeleteRedmineService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// GetSlackService gets Slack service settings for a project.
 	//
 	// GitLab API docs:

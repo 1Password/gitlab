@@ -61,6 +61,12 @@ type GroupsService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/members.html#list-all-billable-members-of-a-group
 	ListBillableGroupMembers(gid interface{}, opt *ListBillableGroupMembersOptions, options ...RequestOptionFunc) ([]*BillableGroupMember, *Response, error)
+	// ListMembershipsForBillableGroupMember Gets a list of memberships for a billable member of a group.
+	// Lists all projects and groups a user is a member of. Only projects and groups within the group hierarchy are included.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/members.html#list-memberships-for-a-billable-member-of-a-group
+	ListMembershipsForBillableGroupMember(gid interface{}, user int, options ...RequestOptionFunc) ([]*BillableUserMembership, *Response, error)
 	// RemoveBillableGroupMember removes a given group members that count as billable.
 	//
 	// GitLab API docs:

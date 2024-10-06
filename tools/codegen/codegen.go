@@ -35,7 +35,7 @@ import (
 // generation.
 //
 // TODO(jaredallard): Read from go.mod
-var goGitlabVersion = "v0.109.0"
+var goGitlabVersion = "v0.110.0"
 
 func main() {
 	log := slogext.New()

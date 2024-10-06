@@ -359,6 +359,26 @@ func (mr *MockServicesServiceMockRecorder) DeletePrometheusService(pid any, opti
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeletePrometheusService", reflect.TypeOf((*MockServicesService)(nil).DeletePrometheusService), varargs...)
 }
 
+// DeleteRedmineService mocks base method.
+func (m *MockServicesService) DeleteRedmineService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DeleteRedmineService", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteRedmineService indicates an expected call of DeleteRedmineService.
+func (mr *MockServicesServiceMockRecorder) DeleteRedmineService(pid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteRedmineService", reflect.TypeOf((*MockServicesService)(nil).DeleteRedmineService), varargs...)
+}
+
 // DeleteSlackService mocks base method.
 func (m *MockServicesService) DeleteSlackService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -751,6 +771,27 @@ func (mr *MockServicesServiceMockRecorder) GetPrometheusService(pid any, options
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetPrometheusService", reflect.TypeOf((*MockServicesService)(nil).GetPrometheusService), varargs...)
+}
+
+// GetRedmineService mocks base method.
+func (m *MockServicesService) GetRedmineService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.RedmineService, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetRedmineService", varargs...)
+	ret0, _ := ret[0].(*gitlab.RedmineService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// GetRedmineService indicates an expected call of GetRedmineService.
+func (mr *MockServicesServiceMockRecorder) GetRedmineService(pid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetRedmineService", reflect.TypeOf((*MockServicesService)(nil).GetRedmineService), varargs...)
 }
 
 // GetSlackApplication mocks base method.
@@ -1197,6 +1238,26 @@ func (mr *MockServicesServiceMockRecorder) SetPrometheusService(pid, opt any, op
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetPrometheusService", reflect.TypeOf((*MockServicesService)(nil).SetPrometheusService), varargs...)
+}
+
+// SetRedmineService mocks base method.
+func (m *MockServicesService) SetRedmineService(pid any, opt *gitlab.SetRedmineServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SetRedmineService", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SetRedmineService indicates an expected call of SetRedmineService.
+func (mr *MockServicesServiceMockRecorder) SetRedmineService(pid, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetRedmineService", reflect.TypeOf((*MockServicesService)(nil).SetRedmineService), varargs...)
 }
 
 // SetSlackApplication mocks base method.

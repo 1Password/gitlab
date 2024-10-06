@@ -96,8 +96,9 @@ type ProjectsService interface {
 	// DeleteProject removes a project including all associated resources
 	// (issues, merge requests etc.)
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/projects.html#delete-project
-	DeleteProject(pid interface{}, options ...RequestOptionFunc) (*Response, error)
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/projects.html#delete-project
+	DeleteProject(pid interface{}, opt *DeleteProjectOptions, options ...RequestOptionFunc) (*Response, error)
 	// ShareProjectWithGroup allows to share a project with a group.
 	//
 	// GitLab API docs: https://docs.gitlab.com/ee/api/projects.html#share-project-with-group

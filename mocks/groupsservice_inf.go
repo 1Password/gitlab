@@ -704,6 +704,27 @@ func (mr *MockGroupsServiceMockRecorder) ListGroups(opt any, options ...any) *go
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListGroups", reflect.TypeOf((*MockGroupsService)(nil).ListGroups), varargs...)
 }
 
+// ListMembershipsForBillableGroupMember mocks base method.
+func (m *MockGroupsService) ListMembershipsForBillableGroupMember(gid any, user int, options ...gitlab.RequestOptionFunc) ([]*gitlab.BillableUserMembership, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{gid, user}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ListMembershipsForBillableGroupMember", varargs...)
+	ret0, _ := ret[0].([]*gitlab.BillableUserMembership)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// ListMembershipsForBillableGroupMember indicates an expected call of ListMembershipsForBillableGroupMember.
+func (mr *MockGroupsServiceMockRecorder) ListMembershipsForBillableGroupMember(gid, user any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{gid, user}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListMembershipsForBillableGroupMember", reflect.TypeOf((*MockGroupsService)(nil).ListMembershipsForBillableGroupMember), varargs...)
+}
+
 // ListProvisionedUsers mocks base method.
 func (m *MockGroupsService) ListProvisionedUsers(gid any, opt *gitlab.ListProvisionedUsersOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.User, *gitlab.Response, error) {
 	m.ctrl.T.Helper()

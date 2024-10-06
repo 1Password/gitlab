@@ -961,6 +961,27 @@ func (mr *MockUsersServiceMockRecorder) ListSSHKeysForUser(uid, opt any, options
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListSSHKeysForUser", reflect.TypeOf((*MockUsersService)(nil).ListSSHKeysForUser), varargs...)
 }
 
+// ListServiceAccounts mocks base method.
+func (m *MockUsersService) ListServiceAccounts(opt *gitlab.ListServiceAccountsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.ServiceAccount, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ListServiceAccounts", varargs...)
+	ret0, _ := ret[0].([]*gitlab.ServiceAccount)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// ListServiceAccounts indicates an expected call of ListServiceAccounts.
+func (mr *MockUsersServiceMockRecorder) ListServiceAccounts(opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListServiceAccounts", reflect.TypeOf((*MockUsersService)(nil).ListServiceAccounts), varargs...)
+}
+
 // ListUserContributionEvents mocks base method.
 func (m *MockUsersService) ListUserContributionEvents(uid any, opt *gitlab.ListContributionEventsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.ContributionEvent, *gitlab.Response, error) {
 	m.ctrl.T.Helper()

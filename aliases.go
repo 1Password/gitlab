@@ -720,20 +720,23 @@ type DeleteGroupLabelOptions = gitlab.DeleteGroupLabelOptions
 // UpdateGroupLabelOptions is an alias to [gitlab.UpdateGroupLabelOptions]
 type UpdateGroupLabelOptions = gitlab.UpdateGroupLabelOptions
 
+// GroupMember is an alias to [gitlab.GroupMember]
+type GroupMember = gitlab.GroupMember
+
 // GroupMemberSAMLIdentity is an alias to [gitlab.GroupMemberSAMLIdentity]
 type GroupMemberSAMLIdentity = gitlab.GroupMemberSAMLIdentity
 
-// GroupMember is an alias to [gitlab.GroupMember]
-type GroupMember = gitlab.GroupMember
+// BillableGroupMember is an alias to [gitlab.BillableGroupMember]
+type BillableGroupMember = gitlab.BillableGroupMember
+
+// BillableUserMembership is an alias to [gitlab.BillableUserMembership]
+type BillableUserMembership = gitlab.BillableUserMembership
 
 // ListGroupMembersOptions is an alias to [gitlab.ListGroupMembersOptions]
 type ListGroupMembersOptions = gitlab.ListGroupMembersOptions
 
 // AddGroupMemberOptions is an alias to [gitlab.AddGroupMemberOptions]
 type AddGroupMemberOptions = gitlab.AddGroupMemberOptions
-
-// BillableGroupMember is an alias to [gitlab.BillableGroupMember]
-type BillableGroupMember = gitlab.BillableGroupMember
 
 // ListBillableGroupMembersOptions is an alias to [gitlab.ListBillableGroupMembersOptions]
 type ListBillableGroupMembersOptions = gitlab.ListBillableGroupMembersOptions
@@ -1356,6 +1359,12 @@ type ListGroupPackagesOptions = gitlab.ListGroupPackagesOptions
 // ListPackageFilesOptions is an alias to [gitlab.ListPackageFilesOptions]
 type ListPackageFilesOptions = gitlab.ListPackageFilesOptions
 
+// Pages is an alias to [gitlab.Pages]
+type Pages = gitlab.Pages
+
+// PagesDeployment is an alias to [gitlab.PagesDeployment]
+type PagesDeployment = gitlab.PagesDeployment
+
 // PagesDomain is an alias to [gitlab.PagesDomain]
 type PagesDomain = gitlab.PagesDomain
 
@@ -1727,6 +1736,9 @@ type ForkProjectOptions = gitlab.ForkProjectOptions
 
 // ListProjectInvidedGroupOptions is an alias to [gitlab.ListProjectInvidedGroupOptions]
 type ListProjectInvidedGroupOptions = gitlab.ListProjectInvidedGroupOptions
+
+// DeleteProjectOptions is an alias to [gitlab.DeleteProjectOptions]
+type DeleteProjectOptions = gitlab.DeleteProjectOptions
 
 // ShareWithGroupOptions is an alias to [gitlab.ShareWithGroupOptions]
 type ShareWithGroupOptions = gitlab.ShareWithGroupOptions
@@ -2193,6 +2205,15 @@ type PrometheusServiceProperties = gitlab.PrometheusServiceProperties
 // SetPrometheusServiceOptions is an alias to [gitlab.SetPrometheusServiceOptions]
 type SetPrometheusServiceOptions = gitlab.SetPrometheusServiceOptions
 
+// RedmineService is an alias to [gitlab.RedmineService]
+type RedmineService = gitlab.RedmineService
+
+// RedmineServiceProperties is an alias to [gitlab.RedmineServiceProperties]
+type RedmineServiceProperties = gitlab.RedmineServiceProperties
+
+// SetRedmineServiceOptions is an alias to [gitlab.SetRedmineServiceOptions]
+type SetRedmineServiceOptions = gitlab.SetRedmineServiceOptions
+
 // SlackService is an alias to [gitlab.SlackService]
 type SlackService = gitlab.SlackService
 
@@ -2358,6 +2379,9 @@ type AccessControlValue = gitlab.AccessControlValue
 // AccessLevelValue is an alias to [gitlab.AccessLevelValue]
 type AccessLevelValue = gitlab.AccessLevelValue
 
+// AccessLevelDetails is an alias to [gitlab.AccessLevelDetails]
+type AccessLevelDetails = gitlab.AccessLevelDetails
+
 // UserIDValue is an alias to [gitlab.UserIDValue]
 type UserIDValue = gitlab.UserIDValue
 
@@ -2477,6 +2501,9 @@ type BoolValue = gitlab.BoolValue
 
 // BasicUser is an alias to [gitlab.BasicUser]
 type BasicUser = gitlab.BasicUser
+
+// ServiceAccount is an alias to [gitlab.ServiceAccount]
+type ServiceAccount = gitlab.ServiceAccount
 
 // User is an alias to [gitlab.User]
 type User = gitlab.User

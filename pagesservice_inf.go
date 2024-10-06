@@ -9,4 +9,10 @@ type PagesService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/pages.html#unpublish-pages
 	UnpublishPages(gid interface{}, options ...RequestOptionFunc) (*Response, error)
+	// GetPages lists Pages settings for a project. The user must have at least
+	// maintainer privileges.
+	//
+	// GitLab API Docs:
+	// https://docs.gitlab.com/ee/api/pages.html#get-pages-settings-for-a-project
+	GetPages(gid interface{}, options ...RequestOptionFunc) (*Pages, *Response, error)
 }

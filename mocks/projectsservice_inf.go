@@ -230,9 +230,9 @@ func (mr *MockProjectsServiceMockRecorder) CreateProjectForkRelation(pid, fork a
 }
 
 // DeleteProject mocks base method.
-func (m *MockProjectsService) DeleteProject(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockProjectsService) DeleteProject(pid any, opt *gitlab.DeleteProjectOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid}
+	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -243,9 +243,9 @@ func (m *MockProjectsService) DeleteProject(pid any, options ...gitlab.RequestOp
 }
 
 // DeleteProject indicates an expected call of DeleteProject.
-func (mr *MockProjectsServiceMockRecorder) DeleteProject(pid any, options ...any) *gomock.Call {
+func (mr *MockProjectsServiceMockRecorder) DeleteProject(pid, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid}, options...)
+	varargs := append([]any{pid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteProject", reflect.TypeOf((*MockProjectsService)(nil).DeleteProject), varargs...)
 }
 

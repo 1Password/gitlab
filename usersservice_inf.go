@@ -254,10 +254,16 @@ type UsersService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/users.html#create-a-runner
 	CreateUserRunner(opts *CreateUserRunnerOptions, options ...RequestOptionFunc) (*UserRunner, *Response, error)
-	// CreateServiceAccountUser creates a new service account user. Note only administrators can create new service account users.
+	// CreateServiceAccountUser creates a new service account user.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/users.html#create-service-account-user
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/users.html#create-service-account-user
 	CreateServiceAccountUser(options ...RequestOptionFunc) (*User, *Response, error)
+	// ListServiceAccounts lists all service accounts.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/users.html#create-service-account-user
+	ListServiceAccounts(opt *ListServiceAccountsOptions, options ...RequestOptionFunc) ([]*ServiceAccount, *Response, error)
 	// UploadAvatar uploads an avatar to the current user.
 	//
 	// GitLab API docs:

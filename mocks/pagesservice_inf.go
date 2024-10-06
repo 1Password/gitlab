@@ -39,6 +39,27 @@ func (m *MockPagesService) EXPECT() *MockPagesServiceMockRecorder {
 	return m.recorder
 }
 
+// GetPages mocks base method.
+func (m *MockPagesService) GetPages(gid any, options ...gitlab.RequestOptionFunc) (*gitlab.Pages, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{gid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetPages", varargs...)
+	ret0, _ := ret[0].(*gitlab.Pages)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// GetPages indicates an expected call of GetPages.
+func (mr *MockPagesServiceMockRecorder) GetPages(gid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{gid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetPages", reflect.TypeOf((*MockPagesService)(nil).GetPages), varargs...)
+}
+
 // UnpublishPages mocks base method.
 func (m *MockPagesService) UnpublishPages(gid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
