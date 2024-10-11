@@ -199,6 +199,26 @@ func (mr *MockServicesServiceMockRecorder) DeleteGithubService(pid any, options 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteGithubService", reflect.TypeOf((*MockServicesService)(nil).DeleteGithubService), varargs...)
 }
 
+// DeleteHarborService mocks base method.
+func (m *MockServicesService) DeleteHarborService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DeleteHarborService", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteHarborService indicates an expected call of DeleteHarborService.
+func (mr *MockServicesServiceMockRecorder) DeleteHarborService(pid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteHarborService", reflect.TypeOf((*MockServicesService)(nil).DeleteHarborService), varargs...)
+}
+
 // DeleteHipChatService mocks base method.
 func (m *MockServicesService) DeleteHipChatService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -624,6 +644,27 @@ func (mr *MockServicesServiceMockRecorder) GetGithubService(pid any, options ...
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGithubService", reflect.TypeOf((*MockServicesService)(nil).GetGithubService), varargs...)
+}
+
+// GetHarborService mocks base method.
+func (m *MockServicesService) GetHarborService(pid any, options ...gitlab.RequestOptionFunc) (*gitlab.HarborService, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetHarborService", varargs...)
+	ret0, _ := ret[0].(*gitlab.HarborService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// GetHarborService indicates an expected call of GetHarborService.
+func (mr *MockServicesServiceMockRecorder) GetHarborService(pid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetHarborService", reflect.TypeOf((*MockServicesService)(nil).GetHarborService), varargs...)
 }
 
 // GetJenkinsCIService mocks base method.
@@ -1078,6 +1119,26 @@ func (mr *MockServicesServiceMockRecorder) SetGithubService(pid, opt any, option
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetGithubService", reflect.TypeOf((*MockServicesService)(nil).SetGithubService), varargs...)
+}
+
+// SetHarborService mocks base method.
+func (m *MockServicesService) SetHarborService(pid any, opt *gitlab.SetHarborServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SetHarborService", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SetHarborService indicates an expected call of SetHarborService.
+func (mr *MockServicesServiceMockRecorder) SetHarborService(pid, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHarborService", reflect.TypeOf((*MockServicesService)(nil).SetHarborService), varargs...)
 }
 
 // SetHipChatService mocks base method.

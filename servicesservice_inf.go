@@ -113,6 +113,21 @@ type ServicesService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#disable-github
 	DeleteGithubService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
+	// GetHarborService gets Harbor service settings for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#get-harbor-settings
+	GetHarborService(pid interface{}, options ...RequestOptionFunc) (*HarborService, *Response, error)
+	// SetHarborService sets Harbor service for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#set-up-harbor
+	SetHarborService(pid interface{}, opt *SetHarborServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	// DeleteHarborService deletes Harbor service for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#disable-harbor
+	DeleteHarborService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// GetSlackApplication gets the GitLab for Slack app integration settings for a
 	// project.
 	//

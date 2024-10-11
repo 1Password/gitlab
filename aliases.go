@@ -2127,6 +2127,15 @@ type GithubServiceProperties = gitlab.GithubServiceProperties
 // SetGithubServiceOptions is an alias to [gitlab.SetGithubServiceOptions]
 type SetGithubServiceOptions = gitlab.SetGithubServiceOptions
 
+// HarborService is an alias to [gitlab.HarborService]
+type HarborService = gitlab.HarborService
+
+// HarborServiceProperties is an alias to [gitlab.HarborServiceProperties]
+type HarborServiceProperties = gitlab.HarborServiceProperties
+
+// SetHarborServiceOptions is an alias to [gitlab.SetHarborServiceOptions]
+type SetHarborServiceOptions = gitlab.SetHarborServiceOptions
+
 // SlackApplication is an alias to [gitlab.SlackApplication]
 type SlackApplication = gitlab.SlackApplication
 
