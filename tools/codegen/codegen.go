@@ -28,14 +28,9 @@ import (
 
 	"github.com/jaredallard/cmdexec"
 	"go.rgst.io/stencil/pkg/slogext"
+	"golang.org/x/mod/modfile"
 	"golang.org/x/tools/go/packages"
 )
-
-// goGitlabVersion is the version of go-gitlab to use for code
-// generation.
-//
-// TODO(jaredallard): Read from go.mod
-var goGitlabVersion = "v0.111.0"
 
 func main() {
 	log := slogext.New()
@@ -207,20 +202,49 @@ func generateMocks(log slogext.Logger) error {
 }
 
 func entrypoint(log slogext.Logger) error {
+	// Read the version of "github.com/xanzy/go-gitlab" from the top level
+	// go.mod.
+	b, err := os.ReadFile("go.mod")
+	if err != nil {
+		return fmt.Errorf("failed to read go.mod: %w", err)
+	}
+
+	mf, err := modfile.Parse("go.mod", b, nil)
+	if err != nil {
+		return fmt.Errorf("failed to parse go.mod: %w", err)
+	}
+
+	var goGitlabVersion string
+	for _, r := range mf.Require {
+		if r.Mod.Path == "github.com/xanzy/go-gitlab" {
+			goGitlabVersion = r.Mod.Version
+			break
+		}
+	}
+	if goGitlabVersion == "" {
+		return fmt.Errorf("failed to find go-gitlab version")
+	}
+
+	log.Info("Detected go-gitlab version", "version", goGitlabVersion)
+
 	// Embedding in the directory was causing issues with the `packages`
 	// package.
 	tmpDir := filepath.Join(os.TempDir(), "go-gitlab")
-	if _, err := os.Stat(tmpDir); os.IsNotExist(err) {
-		log.Info("Cloning go-gitlab")
-		cmd := cmdexec.Command(
-			"git", "clone", "https://github.com/xanzy/go-gitlab",
-			"--single-branch", "--branch", goGitlabVersion,
-			tmpDir,
-		)
-		cmd.UseOSStreams(true)
-		if err := cmd.Run(); err != nil {
-			return err
+	if _, err := os.Stat(tmpDir); err == nil {
+		if err := os.RemoveAll(tmpDir); err != nil {
+			return fmt.Errorf("failed to remove existing tmpDir: %w", err)
 		}
+	}
+
+	log.Info("Cloning go-gitlab")
+	cmd := cmdexec.Command(
+		"git", "clone", "https://github.com/xanzy/go-gitlab",
+		"--single-branch", "--branch", goGitlabVersion,
+		tmpDir,
+	)
+	cmd.UseOSStreams(true)
+	if err := cmd.Run(); err != nil {
+		return err
 	}
 
 	log.Infof("Using go-gitlab from %s", tmpDir)
@@ -255,7 +279,7 @@ func entrypoint(log slogext.Logger) error {
 	}
 
 	log.Info("Formatting generated code")
-	cmd := cmdexec.Command("mise", "run", "fmt")
+	cmd = cmdexec.Command("mise", "run", "fmt")
 	cmd.UseOSStreams(true)
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to format generated code: %w", err)
