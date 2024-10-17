@@ -867,6 +867,9 @@ type EditGroupWikiPageOptions = gitlab.EditGroupWikiPageOptions
 // Group is an alias to [gitlab.Group]
 type Group = gitlab.Group
 
+// BranchProtectionDefaults is an alias to [gitlab.BranchProtectionDefaults]
+type BranchProtectionDefaults = gitlab.BranchProtectionDefaults
+
 // GroupAccessLevel is an alias to [gitlab.GroupAccessLevel]
 type GroupAccessLevel = gitlab.GroupAccessLevel
 
@@ -2261,9 +2264,6 @@ type SetYouTrackServiceOptions = gitlab.SetYouTrackServiceOptions
 
 // Settings is an alias to [gitlab.Settings]
 type Settings = gitlab.Settings
-
-// BranchProtectionDefaults is an alias to [gitlab.BranchProtectionDefaults]
-type BranchProtectionDefaults = gitlab.BranchProtectionDefaults
 
 // UpdateSettingsOptions is an alias to [gitlab.UpdateSettingsOptions]
 type UpdateSettingsOptions = gitlab.UpdateSettingsOptions
