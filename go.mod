@@ -4,7 +4,7 @@ go 1.23
 
 require (
 	github.com/xanzy/go-gitlab v0.112.0
-	go.uber.org/mock v0.4.0
+	go.uber.org/mock v0.5.0
 	gotest.tools/v3 v3.5.1
 )
 
