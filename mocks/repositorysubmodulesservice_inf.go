@@ -20,6 +20,7 @@ import (
 type MockRepositorySubmodulesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockRepositorySubmodulesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockRepositorySubmodulesServiceMockRecorder is the mock recorder for MockRepositorySubmodulesService.

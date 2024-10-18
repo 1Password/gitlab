@@ -20,6 +20,7 @@ import (
 type MockCustomAttributesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockCustomAttributesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockCustomAttributesServiceMockRecorder is the mock recorder for MockCustomAttributesService.

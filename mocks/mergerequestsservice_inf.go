@@ -20,6 +20,7 @@ import (
 type MockMergeRequestsService struct {
 	ctrl     *gomock.Controller
 	recorder *MockMergeRequestsServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockMergeRequestsServiceMockRecorder is the mock recorder for MockMergeRequestsService.

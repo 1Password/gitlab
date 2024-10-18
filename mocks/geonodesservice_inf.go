@@ -20,6 +20,7 @@ import (
 type MockGeoNodesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockGeoNodesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockGeoNodesServiceMockRecorder is the mock recorder for MockGeoNodesService.

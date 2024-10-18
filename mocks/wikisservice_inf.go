@@ -20,6 +20,7 @@ import (
 type MockWikisService struct {
 	ctrl     *gomock.Controller
 	recorder *MockWikisServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockWikisServiceMockRecorder is the mock recorder for MockWikisService.

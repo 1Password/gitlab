@@ -20,6 +20,7 @@ import (
 type MockExternalStatusChecksService struct {
 	ctrl     *gomock.Controller
 	recorder *MockExternalStatusChecksServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockExternalStatusChecksServiceMockRecorder is the mock recorder for MockExternalStatusChecksService.

@@ -20,6 +20,7 @@ import (
 type MockDeployTokensService struct {
 	ctrl     *gomock.Controller
 	recorder *MockDeployTokensServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockDeployTokensServiceMockRecorder is the mock recorder for MockDeployTokensService.

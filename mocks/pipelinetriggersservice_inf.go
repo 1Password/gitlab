@@ -20,6 +20,7 @@ import (
 type MockPipelineTriggersService struct {
 	ctrl     *gomock.Controller
 	recorder *MockPipelineTriggersServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockPipelineTriggersServiceMockRecorder is the mock recorder for MockPipelineTriggersService.

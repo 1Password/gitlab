@@ -20,6 +20,7 @@ import (
 type MockPersonalAccessTokensService struct {
 	ctrl     *gomock.Controller
 	recorder *MockPersonalAccessTokensServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockPersonalAccessTokensServiceMockRecorder is the mock recorder for MockPersonalAccessTokensService.

@@ -20,6 +20,7 @@ import (
 type MockCIYMLTemplatesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockCIYMLTemplatesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockCIYMLTemplatesServiceMockRecorder is the mock recorder for MockCIYMLTemplatesService.

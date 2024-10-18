@@ -20,6 +20,7 @@ import (
 type MockGitIgnoreTemplatesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockGitIgnoreTemplatesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockGitIgnoreTemplatesServiceMockRecorder is the mock recorder for MockGitIgnoreTemplatesService.

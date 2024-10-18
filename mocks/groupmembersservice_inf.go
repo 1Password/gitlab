@@ -20,6 +20,7 @@ import (
 type MockGroupMembersService struct {
 	ctrl     *gomock.Controller
 	recorder *MockGroupMembersServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockGroupMembersServiceMockRecorder is the mock recorder for MockGroupMembersService.

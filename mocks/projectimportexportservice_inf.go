@@ -21,6 +21,7 @@ import (
 type MockProjectImportExportService struct {
 	ctrl     *gomock.Controller
 	recorder *MockProjectImportExportServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockProjectImportExportServiceMockRecorder is the mock recorder for MockProjectImportExportService.

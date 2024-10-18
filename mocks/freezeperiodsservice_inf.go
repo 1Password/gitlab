@@ -20,6 +20,7 @@ import (
 type MockFreezePeriodsService struct {
 	ctrl     *gomock.Controller
 	recorder *MockFreezePeriodsServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockFreezePeriodsServiceMockRecorder is the mock recorder for MockFreezePeriodsService.

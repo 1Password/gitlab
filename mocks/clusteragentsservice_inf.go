@@ -20,6 +20,7 @@ import (
 type MockClusterAgentsService struct {
 	ctrl     *gomock.Controller
 	recorder *MockClusterAgentsServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockClusterAgentsServiceMockRecorder is the mock recorder for MockClusterAgentsService.

@@ -20,6 +20,7 @@ import (
 type MockPipelineSchedulesService struct {
 	ctrl     *gomock.Controller
 	recorder *MockPipelineSchedulesServiceMockRecorder
+	isgomock struct{}
 }
 
 // MockPipelineSchedulesServiceMockRecorder is the mock recorder for MockPipelineSchedulesService.
