@@ -4,7 +4,7 @@ go 1.23
 
 require (
 	github.com/jaredallard/cmdexec v1.2.1
-	go.rgst.io/stencil v0.12.0
+	go.rgst.io/stencil v0.13.0
 	golang.org/x/mod v0.21.0
 	golang.org/x/tools v0.26.0
 )
