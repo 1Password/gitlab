@@ -80,3 +80,24 @@ func (mr *MockPagesServiceMockRecorder) UnpublishPages(gid any, options ...any) 
 	varargs := append([]any{gid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UnpublishPages", reflect.TypeOf((*MockPagesService)(nil).UnpublishPages), varargs...)
 }
+
+// UpdatePages mocks base method.
+func (m *MockPagesService) UpdatePages(pid any, opt gitlab.UpdatePagesOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Pages, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UpdatePages", varargs...)
+	ret0, _ := ret[0].(*gitlab.Pages)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// UpdatePages indicates an expected call of UpdatePages.
+func (mr *MockPagesServiceMockRecorder) UpdatePages(pid, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdatePages", reflect.TypeOf((*MockPagesService)(nil).UpdatePages), varargs...)
+}

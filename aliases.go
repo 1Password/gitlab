@@ -741,6 +741,9 @@ type AddGroupMemberOptions = gitlab.AddGroupMemberOptions
 // ListBillableGroupMembersOptions is an alias to [gitlab.ListBillableGroupMembersOptions]
 type ListBillableGroupMembersOptions = gitlab.ListBillableGroupMembersOptions
 
+// ListMembershipsForBillableGroupMemberOptions is an alias to [gitlab.ListMembershipsForBillableGroupMemberOptions]
+type ListMembershipsForBillableGroupMemberOptions = gitlab.ListMembershipsForBillableGroupMemberOptions
+
 // EditGroupMemberOptions is an alias to [gitlab.EditGroupMemberOptions]
 type EditGroupMemberOptions = gitlab.EditGroupMemberOptions
 
@@ -1368,6 +1371,9 @@ type Pages = gitlab.Pages
 // PagesDeployment is an alias to [gitlab.PagesDeployment]
 type PagesDeployment = gitlab.PagesDeployment
 
+// UpdatePagesOptions is an alias to [gitlab.UpdatePagesOptions]
+type UpdatePagesOptions = gitlab.UpdatePagesOptions
+
 // PagesDomain is an alias to [gitlab.PagesDomain]
 type PagesDomain = gitlab.PagesDomain
 
@@ -1463,6 +1469,9 @@ type CreatePipelineOptions = gitlab.CreatePipelineOptions
 
 // PipelineVariableOptions is an alias to [gitlab.PipelineVariableOptions]
 type PipelineVariableOptions = gitlab.PipelineVariableOptions
+
+// UpdatePipelineMetadataOptions is an alias to [gitlab.UpdatePipelineMetadataOptions]
+type UpdatePipelineMetadataOptions = gitlab.UpdatePipelineMetadataOptions
 
 // PlanLimit is an alias to [gitlab.PlanLimit]
 type PlanLimit = gitlab.PlanLimit
@@ -2441,6 +2450,9 @@ type GenericPackageSelectValue = gitlab.GenericPackageSelectValue
 
 // GenericPackageStatusValue is an alias to [gitlab.GenericPackageStatusValue]
 type GenericPackageStatusValue = gitlab.GenericPackageStatusValue
+
+// GroupHookTrigger is an alias to [gitlab.GroupHookTrigger]
+type GroupHookTrigger = gitlab.GroupHookTrigger
 
 // ISOTime is an alias to [gitlab.ISOTime]
 type ISOTime = gitlab.ISOTime

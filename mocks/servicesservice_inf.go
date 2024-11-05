@@ -963,16 +963,17 @@ func (mr *MockServicesServiceMockRecorder) ListServices(pid any, options ...any)
 }
 
 // SetCustomIssueTrackerService mocks base method.
-func (m *MockServicesService) SetCustomIssueTrackerService(pid any, opt *gitlab.SetCustomIssueTrackerServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetCustomIssueTrackerService(pid any, opt *gitlab.SetCustomIssueTrackerServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.CustomIssueTrackerService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetCustomIssueTrackerService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.CustomIssueTrackerService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetCustomIssueTrackerService indicates an expected call of SetCustomIssueTrackerService.
@@ -983,16 +984,17 @@ func (mr *MockServicesServiceMockRecorder) SetCustomIssueTrackerService(pid, opt
 }
 
 // SetDataDogService mocks base method.
-func (m *MockServicesService) SetDataDogService(pid any, opt *gitlab.SetDataDogServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetDataDogService(pid any, opt *gitlab.SetDataDogServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.DataDogService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetDataDogService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.DataDogService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetDataDogService indicates an expected call of SetDataDogService.
@@ -1003,16 +1005,17 @@ func (mr *MockServicesServiceMockRecorder) SetDataDogService(pid, opt any, optio
 }
 
 // SetDiscordService mocks base method.
-func (m *MockServicesService) SetDiscordService(pid any, opt *gitlab.SetDiscordServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetDiscordService(pid any, opt *gitlab.SetDiscordServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.DiscordService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetDiscordService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.DiscordService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetDiscordService indicates an expected call of SetDiscordService.
@@ -1023,16 +1026,17 @@ func (mr *MockServicesServiceMockRecorder) SetDiscordService(pid, opt any, optio
 }
 
 // SetDroneCIService mocks base method.
-func (m *MockServicesService) SetDroneCIService(pid any, opt *gitlab.SetDroneCIServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetDroneCIService(pid any, opt *gitlab.SetDroneCIServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.DroneCIService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetDroneCIService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.DroneCIService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetDroneCIService indicates an expected call of SetDroneCIService.
@@ -1043,16 +1047,17 @@ func (mr *MockServicesServiceMockRecorder) SetDroneCIService(pid, opt any, optio
 }
 
 // SetEmailsOnPushService mocks base method.
-func (m *MockServicesService) SetEmailsOnPushService(pid any, opt *gitlab.SetEmailsOnPushServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetEmailsOnPushService(pid any, opt *gitlab.SetEmailsOnPushServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.EmailsOnPushService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetEmailsOnPushService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.EmailsOnPushService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetEmailsOnPushService indicates an expected call of SetEmailsOnPushService.
@@ -1063,16 +1068,17 @@ func (mr *MockServicesServiceMockRecorder) SetEmailsOnPushService(pid, opt any, 
 }
 
 // SetExternalWikiService mocks base method.
-func (m *MockServicesService) SetExternalWikiService(pid any, opt *gitlab.SetExternalWikiServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetExternalWikiService(pid any, opt *gitlab.SetExternalWikiServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.ExternalWikiService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetExternalWikiService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.ExternalWikiService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetExternalWikiService indicates an expected call of SetExternalWikiService.
@@ -1103,16 +1109,17 @@ func (mr *MockServicesServiceMockRecorder) SetGitLabCIService(pid, opt any, opti
 }
 
 // SetGithubService mocks base method.
-func (m *MockServicesService) SetGithubService(pid any, opt *gitlab.SetGithubServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetGithubService(pid any, opt *gitlab.SetGithubServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.GithubService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetGithubService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.GithubService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetGithubService indicates an expected call of SetGithubService.
@@ -1123,16 +1130,17 @@ func (mr *MockServicesServiceMockRecorder) SetGithubService(pid, opt any, option
 }
 
 // SetHarborService mocks base method.
-func (m *MockServicesService) SetHarborService(pid any, opt *gitlab.SetHarborServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetHarborService(pid any, opt *gitlab.SetHarborServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.HarborService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetHarborService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.HarborService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetHarborService indicates an expected call of SetHarborService.
@@ -1163,16 +1171,17 @@ func (mr *MockServicesServiceMockRecorder) SetHipChatService(pid, opt any, optio
 }
 
 // SetJenkinsCIService mocks base method.
-func (m *MockServicesService) SetJenkinsCIService(pid any, opt *gitlab.SetJenkinsCIServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetJenkinsCIService(pid any, opt *gitlab.SetJenkinsCIServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.JenkinsCIService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetJenkinsCIService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.JenkinsCIService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetJenkinsCIService indicates an expected call of SetJenkinsCIService.
@@ -1183,16 +1192,17 @@ func (mr *MockServicesServiceMockRecorder) SetJenkinsCIService(pid, opt any, opt
 }
 
 // SetJiraService mocks base method.
-func (m *MockServicesService) SetJiraService(pid any, opt *gitlab.SetJiraServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetJiraService(pid any, opt *gitlab.SetJiraServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.JiraService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetJiraService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.JiraService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetJiraService indicates an expected call of SetJiraService.
@@ -1203,16 +1213,17 @@ func (mr *MockServicesServiceMockRecorder) SetJiraService(pid, opt any, options 
 }
 
 // SetMattermostService mocks base method.
-func (m *MockServicesService) SetMattermostService(pid any, opt *gitlab.SetMattermostServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetMattermostService(pid any, opt *gitlab.SetMattermostServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MattermostService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetMattermostService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.MattermostService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetMattermostService indicates an expected call of SetMattermostService.
@@ -1223,16 +1234,17 @@ func (mr *MockServicesServiceMockRecorder) SetMattermostService(pid, opt any, op
 }
 
 // SetMattermostSlashCommandsService mocks base method.
-func (m *MockServicesService) SetMattermostSlashCommandsService(pid any, opt *gitlab.SetMattermostSlashCommandsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetMattermostSlashCommandsService(pid any, opt *gitlab.SetMattermostSlashCommandsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MattermostSlashCommandsService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetMattermostSlashCommandsService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.MattermostSlashCommandsService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetMattermostSlashCommandsService indicates an expected call of SetMattermostSlashCommandsService.
@@ -1243,16 +1255,17 @@ func (mr *MockServicesServiceMockRecorder) SetMattermostSlashCommandsService(pid
 }
 
 // SetMicrosoftTeamsService mocks base method.
-func (m *MockServicesService) SetMicrosoftTeamsService(pid any, opt *gitlab.SetMicrosoftTeamsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetMicrosoftTeamsService(pid any, opt *gitlab.SetMicrosoftTeamsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MicrosoftTeamsService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetMicrosoftTeamsService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.MicrosoftTeamsService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetMicrosoftTeamsService indicates an expected call of SetMicrosoftTeamsService.
@@ -1263,16 +1276,17 @@ func (mr *MockServicesServiceMockRecorder) SetMicrosoftTeamsService(pid, opt any
 }
 
 // SetPipelinesEmailService mocks base method.
-func (m *MockServicesService) SetPipelinesEmailService(pid any, opt *gitlab.SetPipelinesEmailServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetPipelinesEmailService(pid any, opt *gitlab.SetPipelinesEmailServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.PipelinesEmailService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetPipelinesEmailService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.PipelinesEmailService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetPipelinesEmailService indicates an expected call of SetPipelinesEmailService.
@@ -1283,16 +1297,17 @@ func (mr *MockServicesServiceMockRecorder) SetPipelinesEmailService(pid, opt any
 }
 
 // SetPrometheusService mocks base method.
-func (m *MockServicesService) SetPrometheusService(pid any, opt *gitlab.SetPrometheusServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetPrometheusService(pid any, opt *gitlab.SetPrometheusServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.PrometheusService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetPrometheusService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.PrometheusService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetPrometheusService indicates an expected call of SetPrometheusService.
@@ -1303,16 +1318,17 @@ func (mr *MockServicesServiceMockRecorder) SetPrometheusService(pid, opt any, op
 }
 
 // SetRedmineService mocks base method.
-func (m *MockServicesService) SetRedmineService(pid any, opt *gitlab.SetRedmineServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetRedmineService(pid any, opt *gitlab.SetRedmineServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.RedmineService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetRedmineService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.RedmineService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetRedmineService indicates an expected call of SetRedmineService.
@@ -1323,16 +1339,17 @@ func (mr *MockServicesServiceMockRecorder) SetRedmineService(pid, opt any, optio
 }
 
 // SetSlackApplication mocks base method.
-func (m *MockServicesService) SetSlackApplication(pid any, opt *gitlab.SetSlackApplicationOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetSlackApplication(pid any, opt *gitlab.SetSlackApplicationOptions, options ...gitlab.RequestOptionFunc) (*gitlab.SlackApplication, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetSlackApplication", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.SlackApplication)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetSlackApplication indicates an expected call of SetSlackApplication.
@@ -1343,16 +1360,17 @@ func (mr *MockServicesServiceMockRecorder) SetSlackApplication(pid, opt any, opt
 }
 
 // SetSlackService mocks base method.
-func (m *MockServicesService) SetSlackService(pid any, opt *gitlab.SetSlackServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetSlackService(pid any, opt *gitlab.SetSlackServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.SlackService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetSlackService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.SlackService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetSlackService indicates an expected call of SetSlackService.
@@ -1363,16 +1381,17 @@ func (mr *MockServicesServiceMockRecorder) SetSlackService(pid, opt any, options
 }
 
 // SetSlackSlashCommandsService mocks base method.
-func (m *MockServicesService) SetSlackSlashCommandsService(pid any, opt *gitlab.SetSlackSlashCommandsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetSlackSlashCommandsService(pid any, opt *gitlab.SetSlackSlashCommandsServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.SlackSlashCommandsService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetSlackSlashCommandsService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.SlackSlashCommandsService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetSlackSlashCommandsService indicates an expected call of SetSlackSlashCommandsService.
@@ -1383,16 +1402,17 @@ func (mr *MockServicesServiceMockRecorder) SetSlackSlashCommandsService(pid, opt
 }
 
 // SetTelegramService mocks base method.
-func (m *MockServicesService) SetTelegramService(pid any, opt *gitlab.SetTelegramServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetTelegramService(pid any, opt *gitlab.SetTelegramServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.TelegramService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetTelegramService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.TelegramService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetTelegramService indicates an expected call of SetTelegramService.
@@ -1403,16 +1423,17 @@ func (mr *MockServicesServiceMockRecorder) SetTelegramService(pid, opt any, opti
 }
 
 // SetYouTrackService mocks base method.
-func (m *MockServicesService) SetYouTrackService(pid any, opt *gitlab.SetYouTrackServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockServicesService) SetYouTrackService(pid any, opt *gitlab.SetYouTrackServiceOptions, options ...gitlab.RequestOptionFunc) (*gitlab.YouTrackService, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "SetYouTrackService", varargs...)
-	ret0, _ := ret[0].(*gitlab.Response)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
+	ret0, _ := ret[0].(*gitlab.YouTrackService)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
 }
 
 // SetYouTrackService indicates an expected call of SetYouTrackService.

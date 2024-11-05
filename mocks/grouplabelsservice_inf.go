@@ -82,9 +82,9 @@ func (mr *MockGroupLabelsServiceMockRecorder) DeleteGroupLabel(gid, lid, opt any
 }
 
 // GetGroupLabel mocks base method.
-func (m *MockGroupLabelsService) GetGroupLabel(gid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
+func (m *MockGroupLabelsService) GetGroupLabel(gid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, labelID}
+	varargs := []any{gid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -96,9 +96,9 @@ func (m *MockGroupLabelsService) GetGroupLabel(gid, labelID any, options ...gitl
 }
 
 // GetGroupLabel indicates an expected call of GetGroupLabel.
-func (mr *MockGroupLabelsServiceMockRecorder) GetGroupLabel(gid, labelID any, options ...any) *gomock.Call {
+func (mr *MockGroupLabelsServiceMockRecorder) GetGroupLabel(gid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, labelID}, options...)
+	varargs := append([]any{gid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGroupLabel", reflect.TypeOf((*MockGroupLabelsService)(nil).GetGroupLabel), varargs...)
 }
 
@@ -124,9 +124,9 @@ func (mr *MockGroupLabelsServiceMockRecorder) ListGroupLabels(gid, opt any, opti
 }
 
 // SubscribeToGroupLabel mocks base method.
-func (m *MockGroupLabelsService) SubscribeToGroupLabel(gid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
+func (m *MockGroupLabelsService) SubscribeToGroupLabel(gid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, labelID}
+	varargs := []any{gid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -138,16 +138,16 @@ func (m *MockGroupLabelsService) SubscribeToGroupLabel(gid, labelID any, options
 }
 
 // SubscribeToGroupLabel indicates an expected call of SubscribeToGroupLabel.
-func (mr *MockGroupLabelsServiceMockRecorder) SubscribeToGroupLabel(gid, labelID any, options ...any) *gomock.Call {
+func (mr *MockGroupLabelsServiceMockRecorder) SubscribeToGroupLabel(gid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, labelID}, options...)
+	varargs := append([]any{gid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SubscribeToGroupLabel", reflect.TypeOf((*MockGroupLabelsService)(nil).SubscribeToGroupLabel), varargs...)
 }
 
 // UnsubscribeFromGroupLabel mocks base method.
-func (m *MockGroupLabelsService) UnsubscribeFromGroupLabel(gid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockGroupLabelsService) UnsubscribeFromGroupLabel(gid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, labelID}
+	varargs := []any{gid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -158,16 +158,16 @@ func (m *MockGroupLabelsService) UnsubscribeFromGroupLabel(gid, labelID any, opt
 }
 
 // UnsubscribeFromGroupLabel indicates an expected call of UnsubscribeFromGroupLabel.
-func (mr *MockGroupLabelsServiceMockRecorder) UnsubscribeFromGroupLabel(gid, labelID any, options ...any) *gomock.Call {
+func (mr *MockGroupLabelsServiceMockRecorder) UnsubscribeFromGroupLabel(gid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, labelID}, options...)
+	varargs := append([]any{gid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UnsubscribeFromGroupLabel", reflect.TypeOf((*MockGroupLabelsService)(nil).UnsubscribeFromGroupLabel), varargs...)
 }
 
 // UpdateGroupLabel mocks base method.
-func (m *MockGroupLabelsService) UpdateGroupLabel(gid any, opt *gitlab.UpdateGroupLabelOptions, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
+func (m *MockGroupLabelsService) UpdateGroupLabel(gid, lid any, opt *gitlab.UpdateGroupLabelOptions, options ...gitlab.RequestOptionFunc) (*gitlab.GroupLabel, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, opt}
+	varargs := []any{gid, lid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -179,8 +179,8 @@ func (m *MockGroupLabelsService) UpdateGroupLabel(gid any, opt *gitlab.UpdateGro
 }
 
 // UpdateGroupLabel indicates an expected call of UpdateGroupLabel.
-func (mr *MockGroupLabelsServiceMockRecorder) UpdateGroupLabel(gid, opt any, options ...any) *gomock.Call {
+func (mr *MockGroupLabelsServiceMockRecorder) UpdateGroupLabel(gid, lid, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, opt}, options...)
+	varargs := append([]any{gid, lid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateGroupLabel", reflect.TypeOf((*MockGroupLabelsService)(nil).UpdateGroupLabel), varargs...)
 }

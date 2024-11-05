@@ -24,7 +24,7 @@ type DeployKeysService interface {
 	// original one was is accessible by same user.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/deploy_keys.html#add-deploy-key
+	// https://docs.gitlab.com/ee/api/deploy_keys.html#add-deploy-key-for-a-project
 	AddDeployKey(pid interface{}, opt *AddDeployKeyOptions, options ...RequestOptionFunc) (*ProjectDeployKey, *Response, error)
 	// DeleteDeployKey deletes a deploy key from a project.
 	//

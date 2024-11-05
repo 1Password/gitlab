@@ -706,9 +706,9 @@ func (mr *MockGroupsServiceMockRecorder) ListGroups(opt any, options ...any) *go
 }
 
 // ListMembershipsForBillableGroupMember mocks base method.
-func (m *MockGroupsService) ListMembershipsForBillableGroupMember(gid any, user int, options ...gitlab.RequestOptionFunc) ([]*gitlab.BillableUserMembership, *gitlab.Response, error) {
+func (m *MockGroupsService) ListMembershipsForBillableGroupMember(gid any, user int, opt *gitlab.ListMembershipsForBillableGroupMemberOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BillableUserMembership, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, user}
+	varargs := []any{gid, user, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -720,9 +720,9 @@ func (m *MockGroupsService) ListMembershipsForBillableGroupMember(gid any, user 
 }
 
 // ListMembershipsForBillableGroupMember indicates an expected call of ListMembershipsForBillableGroupMember.
-func (mr *MockGroupsServiceMockRecorder) ListMembershipsForBillableGroupMember(gid, user any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) ListMembershipsForBillableGroupMember(gid, user, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, user}, options...)
+	varargs := append([]any{gid, user, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListMembershipsForBillableGroupMember", reflect.TypeOf((*MockGroupsService)(nil).ListMembershipsForBillableGroupMember), varargs...)
 }
 
@@ -953,6 +953,26 @@ func (mr *MockGroupsServiceMockRecorder) TransferSubGroup(gid, opt any, options 
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{gid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "TransferSubGroup", reflect.TypeOf((*MockGroupsService)(nil).TransferSubGroup), varargs...)
+}
+
+// TriggerTestGroupHook mocks base method.
+func (m *MockGroupsService) TriggerTestGroupHook(pid any, hook int, trigger gitlab.GroupHookTrigger, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, hook, trigger}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "TriggerTestGroupHook", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// TriggerTestGroupHook indicates an expected call of TriggerTestGroupHook.
+func (mr *MockGroupsServiceMockRecorder) TriggerTestGroupHook(pid, hook, trigger any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, hook, trigger}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "TriggerTestGroupHook", reflect.TypeOf((*MockGroupsService)(nil).TriggerTestGroupHook), varargs...)
 }
 
 // UnshareGroupFromGroup mocks base method.

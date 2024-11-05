@@ -6,34 +6,40 @@ package gitlab
 type PipelinesService interface {
 	// ListProjectPipelines gets a list of project piplines.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#list-project-pipelines
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#list-project-pipelines
 	ListProjectPipelines(pid interface{}, opt *ListProjectPipelinesOptions, options ...RequestOptionFunc) ([]*PipelineInfo, *Response, error)
 	// GetPipeline gets a single project pipeline.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#get-a-single-pipeline
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#get-a-single-pipeline
 	GetPipeline(pid interface{}, pipeline int, options ...RequestOptionFunc) (*Pipeline, *Response, error)
 	// GetPipelineVariables gets the variables of a single project pipeline.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#get-variables-of-a-pipeline
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#get-variables-of-a-pipeline
 	GetPipelineVariables(pid interface{}, pipeline int, options ...RequestOptionFunc) ([]*PipelineVariable, *Response, error)
 	// GetPipelineTestReport gets the test report of a single project pipeline.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#get-a-pipelines-test-report
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#get-a-pipelines-test-report
 	GetPipelineTestReport(pid interface{}, pipeline int, options ...RequestOptionFunc) (*PipelineTestReport, *Response, error)
 	// GetLatestPipeline gets the latest pipeline for a specific ref in a project.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#get-the-latest-pipeline
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#get-the-latest-pipeline
 	GetLatestPipeline(pid interface{}, opt *GetLatestPipelineOptions, options ...RequestOptionFunc) (*Pipeline, *Response, error)
 	// CreatePipeline creates a new project pipeline.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/pipelines.html#create-a-new-pipeline
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#create-a-new-pipeline
 	CreatePipeline(pid interface{}, opt *CreatePipelineOptions, options ...RequestOptionFunc) (*Pipeline, *Response, error)
-	// RetryPipelineBuild retries failed builds in a pipeline
+	// RetryPipelineBuild retries failed builds in a pipeline.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/pipelines.html#retry-jobs-in-a-pipeline
 	RetryPipelineBuild(pid interface{}, pipeline int, options ...RequestOptionFunc) (*Pipeline, *Response, error)
-	// CancelPipelineBuild cancels a pipeline builds
+	// CancelPipelineBuild cancels a pipeline builds.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/pipelines.html#cancel-a-pipelines-jobs
@@ -43,4 +49,10 @@ type PipelinesService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/pipelines.html#delete-a-pipeline
 	DeletePipeline(pid interface{}, pipeline int, options ...RequestOptionFunc) (*Response, error)
+	// UpdatePipelineMetadata You can update the metadata of a pipeline. The metadata
+	// contains the name of the pipeline.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/pipelines.html#update-pipeline-metadata
+	UpdatePipelineMetadata(pid interface{}, pipeline int, opt *UpdatePipelineMetadataOptions, options ...RequestOptionFunc) (*Pipeline, *Response, error)
 }

@@ -227,3 +227,24 @@ func (mr *MockPipelinesServiceMockRecorder) RetryPipelineBuild(pid, pipeline any
 	varargs := append([]any{pid, pipeline}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RetryPipelineBuild", reflect.TypeOf((*MockPipelinesService)(nil).RetryPipelineBuild), varargs...)
 }
+
+// UpdatePipelineMetadata mocks base method.
+func (m *MockPipelinesService) UpdatePipelineMetadata(pid any, pipeline int, opt *gitlab.UpdatePipelineMetadataOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Pipeline, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, pipeline, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UpdatePipelineMetadata", varargs...)
+	ret0, _ := ret[0].(*gitlab.Pipeline)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// UpdatePipelineMetadata indicates an expected call of UpdatePipelineMetadata.
+func (mr *MockPipelinesServiceMockRecorder) UpdatePipelineMetadata(pid, pipeline, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, pipeline, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdatePipelineMetadata", reflect.TypeOf((*MockPipelinesService)(nil).UpdatePipelineMetadata), varargs...)
+}

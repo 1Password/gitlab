@@ -17,7 +17,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-a-custom-issue-tracker
-	SetCustomIssueTrackerService(pid interface{}, opt *SetCustomIssueTrackerServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetCustomIssueTrackerService(pid interface{}, opt *SetCustomIssueTrackerServiceOptions, options ...RequestOptionFunc) (*CustomIssueTrackerService, *Response, error)
 	// DeleteCustomIssueTrackerService deletes Custom Issue Tracker service settings for a project.
 	//
 	// GitLab API docs:
@@ -32,7 +32,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-datadog
-	SetDataDogService(pid interface{}, opt *SetDataDogServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetDataDogService(pid interface{}, opt *SetDataDogServiceOptions, options ...RequestOptionFunc) (*DataDogService, *Response, error)
 	// DeleteDataDogService deletes the DataDog service settings for a project.
 	//
 	// GitLab API docs:
@@ -47,7 +47,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-discord-notifications
-	SetDiscordService(pid interface{}, opt *SetDiscordServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetDiscordService(pid interface{}, opt *SetDiscordServiceOptions, options ...RequestOptionFunc) (*DiscordService, *Response, error)
 	// DeleteDiscordService deletes Discord service settings for a project.
 	//
 	// GitLab API docs:
@@ -62,7 +62,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-drone
-	SetDroneCIService(pid interface{}, opt *SetDroneCIServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetDroneCIService(pid interface{}, opt *SetDroneCIServiceOptions, options ...RequestOptionFunc) (*DroneCIService, *Response, error)
 	// DeleteDroneCIService deletes Drone CI service settings for a project.
 	//
 	// GitLab API docs:
@@ -77,7 +77,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-emails-on-push
-	SetEmailsOnPushService(pid interface{}, opt *SetEmailsOnPushServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetEmailsOnPushService(pid interface{}, opt *SetEmailsOnPushServiceOptions, options ...RequestOptionFunc) (*EmailsOnPushService, *Response, error)
 	// DeleteEmailsOnPushService deletes Emails on Push service settings for a project.
 	//
 	// GitLab API docs:
@@ -92,7 +92,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-an-external-wiki
-	SetExternalWikiService(pid interface{}, opt *SetExternalWikiServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetExternalWikiService(pid interface{}, opt *SetExternalWikiServiceOptions, options ...RequestOptionFunc) (*ExternalWikiService, *Response, error)
 	// DeleteExternalWikiService deletes External Wiki service for project.
 	//
 	// GitLab API docs:
@@ -107,7 +107,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-github
-	SetGithubService(pid interface{}, opt *SetGithubServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetGithubService(pid interface{}, opt *SetGithubServiceOptions, options ...RequestOptionFunc) (*GithubService, *Response, error)
 	// DeleteGithubService deletes Github service for a project
 	//
 	// GitLab API docs:
@@ -122,7 +122,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-harbor
-	SetHarborService(pid interface{}, opt *SetHarborServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetHarborService(pid interface{}, opt *SetHarborServiceOptions, options ...RequestOptionFunc) (*HarborService, *Response, error)
 	// DeleteHarborService deletes Harbor service for a project.
 	//
 	// GitLab API docs:
@@ -138,7 +138,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-gitlab-for-slack-app
-	SetSlackApplication(pid interface{}, opt *SetSlackApplicationOptions, options ...RequestOptionFunc) (*Response, error)
+	SetSlackApplication(pid interface{}, opt *SetSlackApplicationOptions, options ...RequestOptionFunc) (*SlackApplication, *Response, error)
 	// DisableSlackApplication disable the GitLab for Slack app integration for a project.
 	//
 	// GitLab API docs:
@@ -173,7 +173,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-jenkins
-	SetJenkinsCIService(pid interface{}, opt *SetJenkinsCIServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetJenkinsCIService(pid interface{}, opt *SetJenkinsCIServiceOptions, options ...RequestOptionFunc) (*JenkinsCIService, *Response, error)
 	// DeleteJenkinsCIService deletes Jenkins CI service for project.
 	//
 	// GitLab API docs:
@@ -188,7 +188,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#edit-jira-service
-	SetJiraService(pid interface{}, opt *SetJiraServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetJiraService(pid interface{}, opt *SetJiraServiceOptions, options ...RequestOptionFunc) (*JiraService, *Response, error)
 	// DeleteJiraService deletes Jira service for project.
 	//
 	// GitLab API docs:
@@ -199,6 +199,16 @@ type ServicesService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#get-slack-service-settings
 	GetMattermostService(pid interface{}, options ...RequestOptionFunc) (*MattermostService, *Response, error)
+	// SetMattermostService sets Mattermost service for a project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#createedit-mattermost-notifications-service
+	SetMattermostService(pid interface{}, opt *SetMattermostServiceOptions, options ...RequestOptionFunc) (*MattermostService, *Response, error)
+	// DeleteMattermostService deletes Mattermost service for project.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/integrations.html#delete-mattermost-notifications-service
+	DeleteMattermostService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// GetMattermostSlashCommandsService gets Slack Mattermost commands service settings for a project.
 	//
 	// GitLab API docs:
@@ -208,22 +218,12 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#createedit-mattermost-slash-command-integration
-	SetMattermostSlashCommandsService(pid interface{}, opt *SetMattermostSlashCommandsServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetMattermostSlashCommandsService(pid interface{}, opt *SetMattermostSlashCommandsServiceOptions, options ...RequestOptionFunc) (*MattermostSlashCommandsService, *Response, error)
 	// DeleteMattermostSlashCommandsService deletes Mattermost slash commands service for project.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#disable-mattermost-slash-command-integration
 	DeleteMattermostSlashCommandsService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
-	// SetMattermostService sets Mattermost service for a project.
-	//
-	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/integrations.html#createedit-mattermost-notifications-service
-	SetMattermostService(pid interface{}, opt *SetMattermostServiceOptions, options ...RequestOptionFunc) (*Response, error)
-	// DeleteMattermostService deletes Mattermost service for project.
-	//
-	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/integrations.html#delete-mattermost-notifications-service
-	DeleteMattermostService(pid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// GetMicrosoftTeamsService gets MicrosoftTeams service settings for a project.
 	//
 	// GitLab API docs:
@@ -233,7 +233,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#create-edit-microsoft-teams-service
-	SetMicrosoftTeamsService(pid interface{}, opt *SetMicrosoftTeamsServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetMicrosoftTeamsService(pid interface{}, opt *SetMicrosoftTeamsServiceOptions, options ...RequestOptionFunc) (*MicrosoftTeamsService, *Response, error)
 	// DeleteMicrosoftTeamsService deletes Microsoft Teams service for project.
 	//
 	// GitLab API docs:
@@ -248,7 +248,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#pipeline-emails
-	SetPipelinesEmailService(pid interface{}, opt *SetPipelinesEmailServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetPipelinesEmailService(pid interface{}, opt *SetPipelinesEmailServiceOptions, options ...RequestOptionFunc) (*PipelinesEmailService, *Response, error)
 	// DeletePipelinesEmailService deletes Pipelines Email service settings for a project.
 	//
 	// GitLab API docs:
@@ -263,7 +263,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#createedit-prometheus-service
-	SetPrometheusService(pid interface{}, opt *SetPrometheusServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetPrometheusService(pid interface{}, opt *SetPrometheusServiceOptions, options ...RequestOptionFunc) (*PrometheusService, *Response, error)
 	// DeletePrometheusService deletes Prometheus service settings for a project.
 	//
 	// GitLab API docs:
@@ -278,7 +278,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-redmine
-	SetRedmineService(pid interface{}, opt *SetRedmineServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetRedmineService(pid interface{}, opt *SetRedmineServiceOptions, options ...RequestOptionFunc) (*RedmineService, *Response, error)
 	// DeleteRedmineService deletes Redmine service for project.
 	//
 	// GitLab API docs:
@@ -293,7 +293,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#edit-slack-service
-	SetSlackService(pid interface{}, opt *SetSlackServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetSlackService(pid interface{}, opt *SetSlackServiceOptions, options ...RequestOptionFunc) (*SlackService, *Response, error)
 	// DeleteSlackService deletes Slack service for project.
 	//
 	// GitLab API docs:
@@ -308,7 +308,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/13.12/ee/api/integrations.html#createedit-slack-slash-command-service
-	SetSlackSlashCommandsService(pid interface{}, opt *SetSlackSlashCommandsServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetSlackSlashCommandsService(pid interface{}, opt *SetSlackSlashCommandsServiceOptions, options ...RequestOptionFunc) (*SlackSlashCommandsService, *Response, error)
 	// DeleteSlackSlashCommandsService deletes Slack slash commands service for project.
 	//
 	// GitLab API docs:
@@ -323,7 +323,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#set-up-telegram
-	SetTelegramService(pid interface{}, opt *SetTelegramServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetTelegramService(pid interface{}, opt *SetTelegramServiceOptions, options ...RequestOptionFunc) (*TelegramService, *Response, error)
 	// DeleteTelegramService deletes Telegram service for project.
 	//
 	// GitLab API docs:
@@ -338,7 +338,7 @@ type ServicesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/integrations.html#createedit-youtrack-service
-	SetYouTrackService(pid interface{}, opt *SetYouTrackServiceOptions, options ...RequestOptionFunc) (*Response, error)
+	SetYouTrackService(pid interface{}, opt *SetYouTrackServiceOptions, options ...RequestOptionFunc) (*YouTrackService, *Response, error)
 	// DeleteYouTrackService deletes YouTrack service settings for a project.
 	//
 	// GitLab API docs:

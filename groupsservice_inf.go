@@ -33,6 +33,11 @@ type GroupsService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/groups.html#delete-group-hook
 	DeleteGroupHook(pid interface{}, hook int, options ...RequestOptionFunc) (*Response, error)
+	// TriggerTestGroupHook triggers a test hook for a specified group.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#trigger-a-test-group-hook
+	TriggerTestGroupHook(pid interface{}, hook int, trigger GroupHookTrigger, options ...RequestOptionFunc) (*Response, error)
 	// SetGroupCustomHeader creates or updates a group custom webhook header.
 	//
 	// GitLab API docs:
@@ -61,12 +66,12 @@ type GroupsService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/members.html#list-all-billable-members-of-a-group
 	ListBillableGroupMembers(gid interface{}, opt *ListBillableGroupMembersOptions, options ...RequestOptionFunc) ([]*BillableGroupMember, *Response, error)
-	// ListMembershipsForBillableGroupMember Gets a list of memberships for a billable member of a group.
-	// Lists all projects and groups a user is a member of. Only projects and groups within the group hierarchy are included.
+	// ListMembershipsForBillableGroupMember gets a list of memberships for a
+	// billable member of a group.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/members.html#list-memberships-for-a-billable-member-of-a-group
-	ListMembershipsForBillableGroupMember(gid interface{}, user int, options ...RequestOptionFunc) ([]*BillableUserMembership, *Response, error)
+	ListMembershipsForBillableGroupMember(gid interface{}, user int, opt *ListMembershipsForBillableGroupMemberOptions, options ...RequestOptionFunc) ([]*BillableUserMembership, *Response, error)
 	// RemoveBillableGroupMember removes a given group members that count as billable.
 	//
 	// GitLab API docs:

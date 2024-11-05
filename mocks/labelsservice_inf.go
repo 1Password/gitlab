@@ -82,9 +82,9 @@ func (mr *MockLabelsServiceMockRecorder) DeleteLabel(pid, lid, opt any, options 
 }
 
 // GetLabel mocks base method.
-func (m *MockLabelsService) GetLabel(pid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
+func (m *MockLabelsService) GetLabel(pid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, labelID}
+	varargs := []any{pid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -96,9 +96,9 @@ func (m *MockLabelsService) GetLabel(pid, labelID any, options ...gitlab.Request
 }
 
 // GetLabel indicates an expected call of GetLabel.
-func (mr *MockLabelsServiceMockRecorder) GetLabel(pid, labelID any, options ...any) *gomock.Call {
+func (mr *MockLabelsServiceMockRecorder) GetLabel(pid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, labelID}, options...)
+	varargs := append([]any{pid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetLabel", reflect.TypeOf((*MockLabelsService)(nil).GetLabel), varargs...)
 }
 
@@ -124,9 +124,9 @@ func (mr *MockLabelsServiceMockRecorder) ListLabels(pid, opt any, options ...any
 }
 
 // PromoteLabel mocks base method.
-func (m *MockLabelsService) PromoteLabel(pid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockLabelsService) PromoteLabel(pid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, labelID}
+	varargs := []any{pid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -137,16 +137,16 @@ func (m *MockLabelsService) PromoteLabel(pid, labelID any, options ...gitlab.Req
 }
 
 // PromoteLabel indicates an expected call of PromoteLabel.
-func (mr *MockLabelsServiceMockRecorder) PromoteLabel(pid, labelID any, options ...any) *gomock.Call {
+func (mr *MockLabelsServiceMockRecorder) PromoteLabel(pid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, labelID}, options...)
+	varargs := append([]any{pid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PromoteLabel", reflect.TypeOf((*MockLabelsService)(nil).PromoteLabel), varargs...)
 }
 
 // SubscribeToLabel mocks base method.
-func (m *MockLabelsService) SubscribeToLabel(pid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
+func (m *MockLabelsService) SubscribeToLabel(pid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, labelID}
+	varargs := []any{pid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -158,16 +158,16 @@ func (m *MockLabelsService) SubscribeToLabel(pid, labelID any, options ...gitlab
 }
 
 // SubscribeToLabel indicates an expected call of SubscribeToLabel.
-func (mr *MockLabelsServiceMockRecorder) SubscribeToLabel(pid, labelID any, options ...any) *gomock.Call {
+func (mr *MockLabelsServiceMockRecorder) SubscribeToLabel(pid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, labelID}, options...)
+	varargs := append([]any{pid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SubscribeToLabel", reflect.TypeOf((*MockLabelsService)(nil).SubscribeToLabel), varargs...)
 }
 
 // UnsubscribeFromLabel mocks base method.
-func (m *MockLabelsService) UnsubscribeFromLabel(pid, labelID any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockLabelsService) UnsubscribeFromLabel(pid, lid any, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, labelID}
+	varargs := []any{pid, lid}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -178,16 +178,16 @@ func (m *MockLabelsService) UnsubscribeFromLabel(pid, labelID any, options ...gi
 }
 
 // UnsubscribeFromLabel indicates an expected call of UnsubscribeFromLabel.
-func (mr *MockLabelsServiceMockRecorder) UnsubscribeFromLabel(pid, labelID any, options ...any) *gomock.Call {
+func (mr *MockLabelsServiceMockRecorder) UnsubscribeFromLabel(pid, lid any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, labelID}, options...)
+	varargs := append([]any{pid, lid}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UnsubscribeFromLabel", reflect.TypeOf((*MockLabelsService)(nil).UnsubscribeFromLabel), varargs...)
 }
 
 // UpdateLabel mocks base method.
-func (m *MockLabelsService) UpdateLabel(pid any, opt *gitlab.UpdateLabelOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
+func (m *MockLabelsService) UpdateLabel(pid, lid any, opt *gitlab.UpdateLabelOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Label, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, opt}
+	varargs := []any{pid, lid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -199,8 +199,8 @@ func (m *MockLabelsService) UpdateLabel(pid any, opt *gitlab.UpdateLabelOptions,
 }
 
 // UpdateLabel indicates an expected call of UpdateLabel.
-func (mr *MockLabelsServiceMockRecorder) UpdateLabel(pid, opt any, options ...any) *gomock.Call {
+func (mr *MockLabelsServiceMockRecorder) UpdateLabel(pid, lid, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, opt}, options...)
+	varargs := append([]any{pid, lid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateLabel", reflect.TypeOf((*MockLabelsService)(nil).UpdateLabel), varargs...)
 }

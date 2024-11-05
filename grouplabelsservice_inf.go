@@ -13,7 +13,7 @@ type GroupLabelsService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/group_labels.html#get-a-single-group-label
-	GetGroupLabel(gid interface{}, labelID interface{}, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
+	GetGroupLabel(gid interface{}, lid interface{}, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
 	// CreateGroupLabel creates a new label for given group with given name and
 	// color.
 	//
@@ -30,19 +30,19 @@ type GroupLabelsService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/group_labels.html#update-a-group-label
-	UpdateGroupLabel(gid interface{}, opt *UpdateGroupLabelOptions, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
+	UpdateGroupLabel(gid interface{}, lid interface{}, opt *UpdateGroupLabelOptions, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
 	// SubscribeToGroupLabel subscribes the authenticated user to a label to receive
 	// notifications. If the user is already subscribed to the label, the status
 	// code 304 is returned.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/group_labels.html#subscribe-to-a-group-label
-	SubscribeToGroupLabel(gid interface{}, labelID interface{}, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
+	SubscribeToGroupLabel(gid interface{}, lid interface{}, options ...RequestOptionFunc) (*GroupLabel, *Response, error)
 	// UnsubscribeFromGroupLabel unsubscribes the authenticated user from a label to not
 	// receive notifications from it. If the user is not subscribed to the label, the
 	// status code 304 is returned.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/group_labels.html#unsubscribe-from-a-group-label
-	UnsubscribeFromGroupLabel(gid interface{}, labelID interface{}, options ...RequestOptionFunc) (*Response, error)
+	UnsubscribeFromGroupLabel(gid interface{}, lid interface{}, options ...RequestOptionFunc) (*Response, error)
 }

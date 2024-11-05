@@ -11,7 +11,7 @@ type LabelsService interface {
 	// GetLabel get a single label for a given project.
 	//
 	// GitLab API docs: https://docs.gitlab.com/ee/api/labels.html#get-a-single-project-label
-	GetLabel(pid interface{}, labelID interface{}, options ...RequestOptionFunc) (*Label, *Response, error)
+	GetLabel(pid interface{}, lid interface{}, options ...RequestOptionFunc) (*Label, *Response, error)
 	// CreateLabel creates a new label for given repository with given name and
 	// color.
 	//
@@ -25,24 +25,24 @@ type LabelsService interface {
 	// one parameter is required, to update the label.
 	//
 	// GitLab API docs: https://docs.gitlab.com/ee/api/labels.html#edit-an-existing-label
-	UpdateLabel(pid interface{}, opt *UpdateLabelOptions, options ...RequestOptionFunc) (*Label, *Response, error)
+	UpdateLabel(pid interface{}, lid interface{}, opt *UpdateLabelOptions, options ...RequestOptionFunc) (*Label, *Response, error)
 	// SubscribeToLabel subscribes the authenticated user to a label to receive
 	// notifications. If the user is already subscribed to the label, the status
 	// code 304 is returned.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/labels.html#subscribe-to-a-label
-	SubscribeToLabel(pid interface{}, labelID interface{}, options ...RequestOptionFunc) (*Label, *Response, error)
+	SubscribeToLabel(pid interface{}, lid interface{}, options ...RequestOptionFunc) (*Label, *Response, error)
 	// UnsubscribeFromLabel unsubscribes the authenticated user from a label to not
 	// receive notifications from it. If the user is not subscribed to the label, the
 	// status code 304 is returned.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/labels.html#unsubscribe-from-a-label
-	UnsubscribeFromLabel(pid interface{}, labelID interface{}, options ...RequestOptionFunc) (*Response, error)
+	UnsubscribeFromLabel(pid interface{}, lid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// PromoteLabel Promotes a project label to a group label.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/labels.html#promote-a-project-label-to-a-group-label
-	PromoteLabel(pid interface{}, labelID interface{}, options ...RequestOptionFunc) (*Response, error)
+	PromoteLabel(pid interface{}, lid interface{}, options ...RequestOptionFunc) (*Response, error)
 }

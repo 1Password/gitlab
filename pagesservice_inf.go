@@ -15,4 +15,10 @@ type PagesService interface {
 	// GitLab API Docs:
 	// https://docs.gitlab.com/ee/api/pages.html#get-pages-settings-for-a-project
 	GetPages(gid interface{}, options ...RequestOptionFunc) (*Pages, *Response, error)
+	// UpdatePages updates Pages settings for a project. The user must have
+	// administrator privileges.
+	//
+	// GitLab API Docs:
+	// https://docs.gitlab.com/ee/api/pages.html#update-pages-settings-for-a-project
+	UpdatePages(pid interface{}, opt UpdatePagesOptions, options ...RequestOptionFunc) (*Pages, *Response, error)
 }
