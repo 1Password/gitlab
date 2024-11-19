@@ -2520,6 +2520,9 @@ type WikiFormatValue = gitlab.WikiFormatValue
 // BoolValue is an alias to [gitlab.BoolValue]
 type BoolValue = gitlab.BoolValue
 
+// CIPipelineVariablesMinimumOverrideRoleValue is an alias to [gitlab.CIPipelineVariablesMinimumOverrideRoleValue]
+type CIPipelineVariablesMinimumOverrideRoleValue = gitlab.CIPipelineVariablesMinimumOverrideRoleValue
+
 // BasicUser is an alias to [gitlab.BasicUser]
 type BasicUser = gitlab.BasicUser
 
