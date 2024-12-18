@@ -20,7 +20,7 @@
 
 package gitlab
 
-import _gitlab "github.com/xanzy/go-gitlab"
+import _gitlab "gitlab.com/gitlab-org/api/client-go"
 
 // Ptr returns a pointer to the value passed in.
 func Ptr[T any](v T) *T {
