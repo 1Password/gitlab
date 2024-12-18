@@ -19,7 +19,7 @@
 package gitlab
 
 import (
- "github.com/xanzy/go-gitlab"
+ gitlab "gitlab.com/gitlab-org/api/client-go"
 )
 
 // client is a wrapper around [gitlab.Client] that implements the

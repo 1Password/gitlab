@@ -45,6 +45,7 @@ type MockClient struct {
 	ContainerRegistryServiceM            *mocks.MockContainerRegistryService
 	CustomAttributesServiceM             *mocks.MockCustomAttributesService
 	DORAMetricsServiceM                  *mocks.MockDORAMetricsService
+	DependencyListExportServiceM         *mocks.MockDependencyListExportService
 	DeployKeysServiceM                   *mocks.MockDeployKeysService
 	DeployTokensServiceM                 *mocks.MockDeployTokensService
 	DeploymentMergeRequestsServiceM      *mocks.MockDeploymentMergeRequestsService
@@ -118,6 +119,7 @@ type MockClient struct {
 	ProjectFeatureFlagServiceM           *mocks.MockProjectFeatureFlagService
 	ProjectImportExportServiceM          *mocks.MockProjectImportExportService
 	ProjectIterationsServiceM            *mocks.MockProjectIterationsService
+	ProjectMarkdownUploadsServiceM       *mocks.MockProjectMarkdownUploadsService
 	ProjectMembersServiceM               *mocks.MockProjectMembersService
 	ProjectMirrorServiceM                *mocks.MockProjectMirrorService
 	ProjectRepositoryStorageMoveServiceM *mocks.MockProjectRepositoryStorageMoveService
@@ -176,6 +178,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		ContainerRegistryServiceM:            mocks.NewMockContainerRegistryService(m),
 		CustomAttributesServiceM:             mocks.NewMockCustomAttributesService(m),
 		DORAMetricsServiceM:                  mocks.NewMockDORAMetricsService(m),
+		DependencyListExportServiceM:         mocks.NewMockDependencyListExportService(m),
 		DeployKeysServiceM:                   mocks.NewMockDeployKeysService(m),
 		DeployTokensServiceM:                 mocks.NewMockDeployTokensService(m),
 		DeploymentMergeRequestsServiceM:      mocks.NewMockDeploymentMergeRequestsService(m),
@@ -249,6 +252,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		ProjectFeatureFlagServiceM:           mocks.NewMockProjectFeatureFlagService(m),
 		ProjectImportExportServiceM:          mocks.NewMockProjectImportExportService(m),
 		ProjectIterationsServiceM:            mocks.NewMockProjectIterationsService(m),
+		ProjectMarkdownUploadsServiceM:       mocks.NewMockProjectMarkdownUploadsService(m),
 		ProjectMembersServiceM:               mocks.NewMockProjectMembersService(m),
 		ProjectMirrorServiceM:                mocks.NewMockProjectMirrorService(m),
 		ProjectRepositoryStorageMoveServiceM: mocks.NewMockProjectRepositoryStorageMoveService(m),
@@ -357,6 +361,11 @@ func (m *MockClient) CustomAttribute() CustomAttributesService {
 // DORAMetrics returns a mocked [DORAMetricsService] service.
 func (m *MockClient) DORAMetrics() DORAMetricsService {
 	return m.DORAMetricsServiceM
+}
+
+// DependencyListExport returns a mocked [DependencyListExportService] service.
+func (m *MockClient) DependencyListExport() DependencyListExportService {
+	return m.DependencyListExportServiceM
 }
 
 // DeployKeys returns a mocked [DeployKeysService] service.
@@ -722,6 +731,11 @@ func (m *MockClient) ProjectImportExport() ProjectImportExportService {
 // ProjectIterations returns a mocked [ProjectIterationsService] service.
 func (m *MockClient) ProjectIterations() ProjectIterationsService {
 	return m.ProjectIterationsServiceM
+}
+
+// ProjectMarkdownUploads returns a mocked [ProjectMarkdownUploadsService] service.
+func (m *MockClient) ProjectMarkdownUploads() ProjectMarkdownUploadsService {
+	return m.ProjectMarkdownUploadsServiceM
 }
 
 // ProjectMembers returns a mocked [ProjectMembersService] service.

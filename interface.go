@@ -36,6 +36,7 @@ type Client interface {
 	ContainerRegistry() ContainerRegistryService
 	CustomAttribute() CustomAttributesService
 	DORAMetrics() DORAMetricsService
+	DependencyListExport() DependencyListExportService
 	DeployKeys() DeployKeysService
 	DeployTokens() DeployTokensService
 	DeploymentMergeRequests() DeploymentMergeRequestsService
@@ -109,6 +110,7 @@ type Client interface {
 	ProjectFeatureFlags() ProjectFeatureFlagService
 	ProjectImportExport() ProjectImportExportService
 	ProjectIterations() ProjectIterationsService
+	ProjectMarkdownUploads() ProjectMarkdownUploadsService
 	ProjectMembers() ProjectMembersService
 	ProjectMirrors() ProjectMirrorService
 	ProjectRepositoryStorageMove() ProjectRepositoryStorageMoveService

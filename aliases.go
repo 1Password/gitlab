@@ -213,6 +213,12 @@ type DeleteRegistryRepositoryTagsOptions = gitlab.DeleteRegistryRepositoryTagsOp
 // CustomAttribute is an alias to [gitlab.CustomAttribute]
 type CustomAttribute = gitlab.CustomAttribute
 
+// CreateDependencyListExportOptions is an alias to [gitlab.CreateDependencyListExportOptions]
+type CreateDependencyListExportOptions = gitlab.CreateDependencyListExportOptions
+
+// DependencyListExport is an alias to [gitlab.DependencyListExport]
+type DependencyListExport = gitlab.DependencyListExport
+
 // InstanceDeployKey is an alias to [gitlab.InstanceDeployKey]
 type InstanceDeployKey = gitlab.InstanceDeployKey
 
@@ -1584,6 +1590,12 @@ type AddManagedLicenseOptions = gitlab.AddManagedLicenseOptions
 // EditManagedLicenceOptions is an alias to [gitlab.EditManagedLicenceOptions]
 type EditManagedLicenceOptions = gitlab.EditManagedLicenceOptions
 
+// ProjectMarkdownUploadedFile is an alias to [gitlab.ProjectMarkdownUploadedFile]
+type ProjectMarkdownUploadedFile = gitlab.ProjectMarkdownUploadedFile
+
+// ProjectMarkdownUpload is an alias to [gitlab.ProjectMarkdownUpload]
+type ProjectMarkdownUpload = gitlab.ProjectMarkdownUpload
+
 // ListProjectMembersOptions is an alias to [gitlab.ListProjectMembersOptions]
 type ListProjectMembersOptions = gitlab.ListProjectMembersOptions
 
@@ -2619,11 +2631,17 @@ type UserRunner = gitlab.UserRunner
 // CreateUserRunnerOptions is an alias to [gitlab.CreateUserRunnerOptions]
 type CreateUserRunnerOptions = gitlab.CreateUserRunnerOptions
 
+// CreateServiceAccountUserOptions is an alias to [gitlab.CreateServiceAccountUserOptions]
+type CreateServiceAccountUserOptions = gitlab.CreateServiceAccountUserOptions
+
 // LintResult is an alias to [gitlab.LintResult]
 type LintResult = gitlab.LintResult
 
 // ProjectLintResult is an alias to [gitlab.ProjectLintResult]
 type ProjectLintResult = gitlab.ProjectLintResult
+
+// Include is an alias to [gitlab.Include]
+type Include = gitlab.Include
 
 // LintOptions is an alias to [gitlab.LintOptions]
 type LintOptions = gitlab.LintOptions

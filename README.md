@@ -15,7 +15,9 @@
 
 <br />
 
-Wrapper for [go-gitlab] that supports mocking.
+Wrapper for [go-gitlab]
+([gitlab.com/gitlab-org/api/client-go](gitlab.com/gitlab-org/api/client-go))
+that supports mocking.
 
 ## Usage
 
@@ -102,6 +104,6 @@ this possible and saving me a lot of pain w/ the ast package :)
 
 LGPL-3.0
 
-[go-gitlab]: https://github.com/xanzy/go-gitlab
+[go-gitlab]: gitlab.com/gitlab-org/api/client-go
 [mockgen]: https://pkg.go.dev/go.uber.org/mock/mockgen
 [ifacemaker]: https://github.com/vburenin/ifacemaker@latest

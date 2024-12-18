@@ -191,7 +191,7 @@ func generateMocks(log slogext.Logger) error {
 			return fmt.Errorf("failed to read mock file: %w", err)
 		}
 
-		b = []byte(strings.ReplaceAll(string(b), `gitlab "github.com/jaredallard/gitlab"`, `gitlab "github.com/xanzy/go-gitlab"`))
+		b = []byte(strings.ReplaceAll(string(b), `gitlab "github.com/jaredallard/gitlab"`, `gitlab "gitlab.com/gitlab-org/api/client-go"`))
 		//nolint:gosec // Why: OK.
 		if err := os.WriteFile(filepath.Join("mocks", file), b, 0o644); err != nil {
 			return fmt.Errorf("failed to write mock file: %w", err)
@@ -202,7 +202,7 @@ func generateMocks(log slogext.Logger) error {
 }
 
 func entrypoint(log slogext.Logger) error {
-	// Read the version of "github.com/xanzy/go-gitlab" from the top level
+	// Read the version of "gitlab.com/gitlab-org/api/client-go" from the top level
 	// go.mod.
 	b, err := os.ReadFile("go.mod")
 	if err != nil {
@@ -216,7 +216,7 @@ func entrypoint(log slogext.Logger) error {
 
 	var goGitlabVersion string
 	for _, r := range mf.Require {
-		if r.Mod.Path == "github.com/xanzy/go-gitlab" {
+		if r.Mod.Path == "gitlab.com/gitlab-org/api/client-go" {
 			goGitlabVersion = r.Mod.Version
 			break
 		}
@@ -238,7 +238,7 @@ func entrypoint(log slogext.Logger) error {
 
 	log.Info("Cloning go-gitlab")
 	cmd := cmdexec.Command(
-		"git", "clone", "https://github.com/xanzy/go-gitlab",
+		"git", "clone", "https://gitlab.com/gitlab-org/api/client-go",
 		"--single-branch", "--branch", goGitlabVersion,
 		tmpDir,
 	)

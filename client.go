@@ -19,7 +19,7 @@
 package gitlab
 
 import (
-	"github.com/xanzy/go-gitlab"
+	gitlab "gitlab.com/gitlab-org/api/client-go"
 )
 
 // client is a wrapper around [gitlab.Client] that implements the
@@ -40,6 +40,7 @@ type client struct {
 	containerRegistryService            ContainerRegistryService
 	customAttributesService             CustomAttributesService
 	dORAMetricsService                  DORAMetricsService
+	dependencyListExportService         DependencyListExportService
 	deployKeysService                   DeployKeysService
 	deployTokensService                 DeployTokensService
 	deploymentMergeRequestsService      DeploymentMergeRequestsService
@@ -113,6 +114,7 @@ type client struct {
 	projectFeatureFlagService           ProjectFeatureFlagService
 	projectImportExportService          ProjectImportExportService
 	projectIterationsService            ProjectIterationsService
+	projectMarkdownUploadsService       ProjectMarkdownUploadsService
 	projectMembersService               ProjectMembersService
 	projectMirrorService                ProjectMirrorService
 	projectRepositoryStorageMoveService ProjectRepositoryStorageMoveService
@@ -220,6 +222,11 @@ func (c *client) CustomAttribute() CustomAttributesService {
 // DORAMetrics returns the [DORAMetricsService] service for the client.
 func (c *client) DORAMetrics() DORAMetricsService {
 	return c.dORAMetricsService
+}
+
+// DependencyListExport returns the [DependencyListExportService] service for the client.
+func (c *client) DependencyListExport() DependencyListExportService {
+	return c.dependencyListExportService
 }
 
 // DeployKeys returns the [DeployKeysService] service for the client.
@@ -587,6 +594,11 @@ func (c *client) ProjectIterations() ProjectIterationsService {
 	return c.projectIterationsService
 }
 
+// ProjectMarkdownUploads returns the [ProjectMarkdownUploadsService] service for the client.
+func (c *client) ProjectMarkdownUploads() ProjectMarkdownUploadsService {
+	return c.projectMarkdownUploadsService
+}
+
 // ProjectMembers returns the [ProjectMembersService] service for the client.
 func (c *client) ProjectMembers() ProjectMembersService {
 	return c.projectMembersService
@@ -800,6 +812,7 @@ func FromClient(gl *gitlab.Client) Client {
 		containerRegistryService:            gl.ContainerRegistry,
 		customAttributesService:             gl.CustomAttribute,
 		dORAMetricsService:                  gl.DORAMetrics,
+		dependencyListExportService:         gl.DependencyListExport,
 		deployKeysService:                   gl.DeployKeys,
 		deployTokensService:                 gl.DeployTokens,
 		deploymentMergeRequestsService:      gl.DeploymentMergeRequests,
@@ -873,6 +886,7 @@ func FromClient(gl *gitlab.Client) Client {
 		projectFeatureFlagService:           gl.ProjectFeatureFlags,
 		projectImportExportService:          gl.ProjectImportExport,
 		projectIterationsService:            gl.ProjectIterations,
+		projectMarkdownUploadsService:       gl.ProjectMarkdownUploads,
 		projectMembersService:               gl.ProjectMembers,
 		projectMirrorService:                gl.ProjectMirrors,
 		projectRepositoryStorageMoveService: gl.ProjectRepositoryStorageMove,

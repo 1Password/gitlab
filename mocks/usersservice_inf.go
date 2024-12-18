@@ -13,7 +13,7 @@ import (
 	io "io"
 	reflect "reflect"
 
-	gitlab "github.com/xanzy/go-gitlab"
+	gitlab "gitlab.com/gitlab-org/api/client-go"
 	gomock "go.uber.org/mock/gomock"
 )
 
@@ -307,9 +307,9 @@ func (mr *MockUsersServiceMockRecorder) CreatePersonalAccessTokenForCurrentUser(
 }
 
 // CreateServiceAccountUser mocks base method.
-func (m *MockUsersService) CreateServiceAccountUser(options ...gitlab.RequestOptionFunc) (*gitlab.User, *gitlab.Response, error) {
+func (m *MockUsersService) CreateServiceAccountUser(opts *gitlab.CreateServiceAccountUserOptions, options ...gitlab.RequestOptionFunc) (*gitlab.User, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{}
+	varargs := []any{opts}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -321,9 +321,10 @@ func (m *MockUsersService) CreateServiceAccountUser(options ...gitlab.RequestOpt
 }
 
 // CreateServiceAccountUser indicates an expected call of CreateServiceAccountUser.
-func (mr *MockUsersServiceMockRecorder) CreateServiceAccountUser(options ...any) *gomock.Call {
+func (mr *MockUsersServiceMockRecorder) CreateServiceAccountUser(opts any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServiceAccountUser", reflect.TypeOf((*MockUsersService)(nil).CreateServiceAccountUser), options...)
+	varargs := append([]any{opts}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateServiceAccountUser", reflect.TypeOf((*MockUsersService)(nil).CreateServiceAccountUser), varargs...)
 }
 
 // CreateUser mocks base method.
