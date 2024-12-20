@@ -3,7 +3,7 @@ module github.com/jaredallard/gitlab
 go 1.23.4
 
 require (
-	gitlab.com/gitlab-org/api/client-go v0.117.0
+	gitlab.com/gitlab-org/api/client-go v0.118.0
 	go.uber.org/mock v0.5.0
 	gotest.tools/v3 v3.5.1
 )
