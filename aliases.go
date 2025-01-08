@@ -1245,6 +1245,15 @@ type GetMergeRequestDiffVersionsOptions = gitlab.GetMergeRequestDiffVersionsOpti
 // GetSingleMergeRequestDiffVersionOptions is an alias to [gitlab.GetSingleMergeRequestDiffVersionOptions]
 type GetSingleMergeRequestDiffVersionOptions = gitlab.GetSingleMergeRequestDiffVersionOptions
 
+// MergeRequestDependency is an alias to [gitlab.MergeRequestDependency]
+type MergeRequestDependency = gitlab.MergeRequestDependency
+
+// BlockingMergeRequest is an alias to [gitlab.BlockingMergeRequest]
+type BlockingMergeRequest = gitlab.BlockingMergeRequest
+
+// CreateMergeRequestDependencyOptions is an alias to [gitlab.CreateMergeRequestDependencyOptions]
+type CreateMergeRequestDependencyOptions = gitlab.CreateMergeRequestDependencyOptions
+
 // MergeTrain is an alias to [gitlab.MergeTrain]
 type MergeTrain = gitlab.MergeTrain
 

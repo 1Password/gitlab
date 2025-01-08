@@ -173,4 +173,21 @@ type MergeRequestsService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#get-time-tracking-stats
 	GetTimeSpent(pid interface{}, mergeRequest int, options ...RequestOptionFunc) (*TimeStats, *Response, error)
+	// CreateMergeRequestDependency creates a new merge request dependency for a given
+	// merge request.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/merge_requests.html#create-a-merge-request-dependency
+	CreateMergeRequestDependency(pid interface{}, mergeRequest int, opts CreateMergeRequestDependencyOptions, options ...RequestOptionFunc) ([]MergeRequestDependency, *Response, error)
+	// DeleteMergeRequestDependency deletes a merge request dependency for a given
+	// merge request.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/merge_requests.html#delete-a-merge-request-dependency
+	DeleteMergeRequestDependency(pid interface{}, mergeRequest int, blockingMergeRequest int, options ...RequestOptionFunc) (*Response, error)
+	// GetMergeRequestDependencies gets a list of merge request dependencies.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/merge_requests.html#get-merge-request-dependencies
+	GetMergeRequestDependencies(pid interface{}, mergeRequest int, options ...RequestOptionFunc) ([]MergeRequestDependency, *Response, error)
 }

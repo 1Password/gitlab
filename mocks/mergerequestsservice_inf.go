@@ -124,6 +124,27 @@ func (mr *MockMergeRequestsServiceMockRecorder) CreateMergeRequest(pid, opt any,
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateMergeRequest", reflect.TypeOf((*MockMergeRequestsService)(nil).CreateMergeRequest), varargs...)
 }
 
+// CreateMergeRequestDependency mocks base method.
+func (m *MockMergeRequestsService) CreateMergeRequestDependency(pid any, mergeRequest int, opts gitlab.CreateMergeRequestDependencyOptions, options ...gitlab.RequestOptionFunc) ([]gitlab.MergeRequestDependency, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, mergeRequest, opts}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "CreateMergeRequestDependency", varargs...)
+	ret0, _ := ret[0].([]gitlab.MergeRequestDependency)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// CreateMergeRequestDependency indicates an expected call of CreateMergeRequestDependency.
+func (mr *MockMergeRequestsServiceMockRecorder) CreateMergeRequestDependency(pid, mergeRequest, opts any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, mergeRequest, opts}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateMergeRequestDependency", reflect.TypeOf((*MockMergeRequestsService)(nil).CreateMergeRequestDependency), varargs...)
+}
+
 // CreateMergeRequestPipeline mocks base method.
 func (m *MockMergeRequestsService) CreateMergeRequestPipeline(pid any, mergeRequest int, options ...gitlab.RequestOptionFunc) (*gitlab.PipelineInfo, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -184,6 +205,26 @@ func (mr *MockMergeRequestsServiceMockRecorder) DeleteMergeRequest(pid, mergeReq
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, mergeRequest}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteMergeRequest", reflect.TypeOf((*MockMergeRequestsService)(nil).DeleteMergeRequest), varargs...)
+}
+
+// DeleteMergeRequestDependency mocks base method.
+func (m *MockMergeRequestsService) DeleteMergeRequestDependency(pid any, mergeRequest, blockingMergeRequest int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, mergeRequest, blockingMergeRequest}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DeleteMergeRequestDependency", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteMergeRequestDependency indicates an expected call of DeleteMergeRequestDependency.
+func (mr *MockMergeRequestsServiceMockRecorder) DeleteMergeRequestDependency(pid, mergeRequest, blockingMergeRequest any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, mergeRequest, blockingMergeRequest}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteMergeRequestDependency", reflect.TypeOf((*MockMergeRequestsService)(nil).DeleteMergeRequestDependency), varargs...)
 }
 
 // GetIssuesClosedOnMerge mocks base method.
@@ -289,6 +330,27 @@ func (mr *MockMergeRequestsServiceMockRecorder) GetMergeRequestCommits(pid, merg
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, mergeRequest, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMergeRequestCommits", reflect.TypeOf((*MockMergeRequestsService)(nil).GetMergeRequestCommits), varargs...)
+}
+
+// GetMergeRequestDependencies mocks base method.
+func (m *MockMergeRequestsService) GetMergeRequestDependencies(pid any, mergeRequest int, options ...gitlab.RequestOptionFunc) ([]gitlab.MergeRequestDependency, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, mergeRequest}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "GetMergeRequestDependencies", varargs...)
+	ret0, _ := ret[0].([]gitlab.MergeRequestDependency)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// GetMergeRequestDependencies indicates an expected call of GetMergeRequestDependencies.
+func (mr *MockMergeRequestsServiceMockRecorder) GetMergeRequestDependencies(pid, mergeRequest any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, mergeRequest}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMergeRequestDependencies", reflect.TypeOf((*MockMergeRequestsService)(nil).GetMergeRequestDependencies), varargs...)
 }
 
 // GetMergeRequestDiffVersions mocks base method.
