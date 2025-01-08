@@ -27,7 +27,7 @@ import (
 	"strings"
 
 	"github.com/jaredallard/cmdexec"
-	"go.rgst.io/stencil/pkg/slogext"
+	"go.rgst.io/stencil/v2/pkg/slogext"
 	"golang.org/x/mod/modfile"
 	"golang.org/x/tools/go/packages"
 )

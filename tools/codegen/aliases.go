@@ -24,7 +24,7 @@ import (
 	"os"
 	"text/template"
 
-	"go.rgst.io/stencil/pkg/slogext"
+	"go.rgst.io/stencil/v2/pkg/slogext"
 	"golang.org/x/tools/go/packages"
 )
 
