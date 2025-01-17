@@ -1605,6 +1605,9 @@ type ProjectMarkdownUploadedFile = gitlab.ProjectMarkdownUploadedFile
 // ProjectMarkdownUpload is an alias to [gitlab.ProjectMarkdownUpload]
 type ProjectMarkdownUpload = gitlab.ProjectMarkdownUpload
 
+// ProjectMember is an alias to [gitlab.ProjectMember]
+type ProjectMember = gitlab.ProjectMember
+
 // ListProjectMembersOptions is an alias to [gitlab.ListProjectMembersOptions]
 type ListProjectMembersOptions = gitlab.ListProjectMembersOptions
 
@@ -1775,9 +1778,6 @@ type DeleteProjectOptions = gitlab.DeleteProjectOptions
 
 // ShareWithGroupOptions is an alias to [gitlab.ShareWithGroupOptions]
 type ShareWithGroupOptions = gitlab.ShareWithGroupOptions
-
-// ProjectMember is an alias to [gitlab.ProjectMember]
-type ProjectMember = gitlab.ProjectMember
 
 // HookCustomHeader is an alias to [gitlab.HookCustomHeader]
 type HookCustomHeader = gitlab.HookCustomHeader

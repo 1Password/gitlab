@@ -1,9 +1,9 @@
 module github.com/jaredallard/gitlab
 
-go 1.23.4
+go 1.23
 
 require (
-	gitlab.com/gitlab-org/api/client-go v0.119.0
+	gitlab.com/gitlab-org/api/client-go v0.120.0
 	go.uber.org/mock v0.5.0
 	gotest.tools/v3 v3.5.1
 )
