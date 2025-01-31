@@ -4,7 +4,7 @@ go 1.23.4
 
 require (
 	github.com/jaredallard/cmdexec v1.2.1
-	go.rgst.io/stencil/v2 v2.0.1
+	go.rgst.io/stencil/v2 v2.1.0
 	golang.org/x/mod v0.22.0
 	golang.org/x/tools v0.29.0
 )
