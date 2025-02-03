@@ -68,6 +68,7 @@ type Client interface {
 	GroupProtectedEnvironments() GroupProtectedEnvironmentsService
 	GroupRepositoryStorageMove() GroupRepositoryStorageMoveService
 	GroupSSHCertificates() GroupSSHCertificatesService
+	GroupSecuritySettings() GroupSecuritySettingsService
 	GroupVariables() GroupVariablesService
 	GroupWikis() GroupWikisService
 	Groups() GroupsService

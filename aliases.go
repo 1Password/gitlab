@@ -825,6 +825,12 @@ type ScheduleStorageMoveForGroupOptions = gitlab.ScheduleStorageMoveForGroupOpti
 // ScheduleAllGroupStorageMovesOptions is an alias to [gitlab.ScheduleAllGroupStorageMovesOptions]
 type ScheduleAllGroupStorageMovesOptions = gitlab.ScheduleAllGroupStorageMovesOptions
 
+// GroupSecuritySettings is an alias to [gitlab.GroupSecuritySettings]
+type GroupSecuritySettings = gitlab.GroupSecuritySettings
+
+// UpdateGroupSecuritySettingsOptions is an alias to [gitlab.UpdateGroupSecuritySettingsOptions]
+type UpdateGroupSecuritySettingsOptions = gitlab.UpdateGroupSecuritySettingsOptions
+
 // GroupServiceAccount is an alias to [gitlab.GroupServiceAccount]
 type GroupServiceAccount = gitlab.GroupServiceAccount
 
@@ -1220,6 +1226,9 @@ type GetMergeRequestChangesOptions = gitlab.GetMergeRequestChangesOptions
 
 // ListMergeRequestDiffsOptions is an alias to [gitlab.ListMergeRequestDiffsOptions]
 type ListMergeRequestDiffsOptions = gitlab.ListMergeRequestDiffsOptions
+
+// ShowMergeRequestRawDiffsOptions is an alias to [gitlab.ShowMergeRequestRawDiffsOptions]
+type ShowMergeRequestRawDiffsOptions = gitlab.ShowMergeRequestRawDiffsOptions
 
 // MergeRequestReviewer is an alias to [gitlab.MergeRequestReviewer]
 type MergeRequestReviewer = gitlab.MergeRequestReviewer
@@ -1919,6 +1928,15 @@ type UpdateReleaseLinkOptions = gitlab.UpdateReleaseLinkOptions
 
 // Release is an alias to [gitlab.Release]
 type Release = gitlab.Release
+
+// ReleaseMilestone is an alias to [gitlab.ReleaseMilestone]
+type ReleaseMilestone = gitlab.ReleaseMilestone
+
+// ReleaseMilestoneIssueStats is an alias to [gitlab.ReleaseMilestoneIssueStats]
+type ReleaseMilestoneIssueStats = gitlab.ReleaseMilestoneIssueStats
+
+// ReleaseEvidence is an alias to [gitlab.ReleaseEvidence]
+type ReleaseEvidence = gitlab.ReleaseEvidence
 
 // ListReleasesOptions is an alias to [gitlab.ListReleasesOptions]
 type ListReleasesOptions = gitlab.ListReleasesOptions

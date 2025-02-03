@@ -12,7 +12,7 @@ type ProjectMarkdownUploadsService interface {
 	//
 	// GitLab docs:
 	// https://docs.gitlab.com/ee/api/project_markdown_uploads.html#upload-a-file
-	UploadProjectMarkdown(pid interface{}, content io.Reader, options ...RequestOptionFunc) (*ProjectMarkdownUploadedFile, *Response, error)
+	UploadProjectMarkdown(pid interface{}, content io.Reader, filename string, options ...RequestOptionFunc) (*ProjectMarkdownUploadedFile, *Response, error)
 	// ListProjectMarkdownUploads gets all markdown uploads for a project.
 	//
 	// GitLab API Docs:

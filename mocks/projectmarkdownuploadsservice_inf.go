@@ -145,9 +145,9 @@ func (mr *MockProjectMarkdownUploadsServiceMockRecorder) ListProjectMarkdownUplo
 }
 
 // UploadProjectMarkdown mocks base method.
-func (m *MockProjectMarkdownUploadsService) UploadProjectMarkdown(pid any, content io.Reader, options ...gitlab.RequestOptionFunc) (*gitlab.ProjectMarkdownUploadedFile, *gitlab.Response, error) {
+func (m *MockProjectMarkdownUploadsService) UploadProjectMarkdown(pid any, content io.Reader, filename string, options ...gitlab.RequestOptionFunc) (*gitlab.ProjectMarkdownUploadedFile, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, content}
+	varargs := []any{pid, content, filename}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -159,8 +159,8 @@ func (m *MockProjectMarkdownUploadsService) UploadProjectMarkdown(pid any, conte
 }
 
 // UploadProjectMarkdown indicates an expected call of UploadProjectMarkdown.
-func (mr *MockProjectMarkdownUploadsServiceMockRecorder) UploadProjectMarkdown(pid, content any, options ...any) *gomock.Call {
+func (mr *MockProjectMarkdownUploadsServiceMockRecorder) UploadProjectMarkdown(pid, content, filename any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, content}, options...)
+	varargs := append([]any{pid, content, filename}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadProjectMarkdown", reflect.TypeOf((*MockProjectMarkdownUploadsService)(nil).UploadProjectMarkdown), varargs...)
 }

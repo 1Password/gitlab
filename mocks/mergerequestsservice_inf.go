@@ -646,6 +646,27 @@ func (mr *MockMergeRequestsServiceMockRecorder) SetTimeEstimate(pid, mergeReques
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTimeEstimate", reflect.TypeOf((*MockMergeRequestsService)(nil).SetTimeEstimate), varargs...)
 }
 
+// ShowMergeRequestRawDiffs mocks base method.
+func (m *MockMergeRequestsService) ShowMergeRequestRawDiffs(pid any, mergeRequest int, opt *gitlab.ShowMergeRequestRawDiffsOptions, options ...gitlab.RequestOptionFunc) ([]byte, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, mergeRequest, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ShowMergeRequestRawDiffs", varargs...)
+	ret0, _ := ret[0].([]byte)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// ShowMergeRequestRawDiffs indicates an expected call of ShowMergeRequestRawDiffs.
+func (mr *MockMergeRequestsServiceMockRecorder) ShowMergeRequestRawDiffs(pid, mergeRequest, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, mergeRequest, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ShowMergeRequestRawDiffs", reflect.TypeOf((*MockMergeRequestsService)(nil).ShowMergeRequestRawDiffs), varargs...)
+}
+
 // SubscribeToMergeRequest mocks base method.
 func (m *MockMergeRequestsService) SubscribeToMergeRequest(pid any, mergeRequest int, options ...gitlab.RequestOptionFunc) (*gitlab.MergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()

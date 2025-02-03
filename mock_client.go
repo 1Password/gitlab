@@ -77,6 +77,7 @@ type MockClient struct {
 	GroupProtectedEnvironmentsServiceM   *mocks.MockGroupProtectedEnvironmentsService
 	GroupRepositoryStorageMoveServiceM   *mocks.MockGroupRepositoryStorageMoveService
 	GroupSSHCertificatesServiceM         *mocks.MockGroupSSHCertificatesService
+	GroupSecuritySettingsServiceM        *mocks.MockGroupSecuritySettingsService
 	GroupVariablesServiceM               *mocks.MockGroupVariablesService
 	GroupWikisServiceM                   *mocks.MockGroupWikisService
 	GroupsServiceM                       *mocks.MockGroupsService
@@ -210,6 +211,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		GroupProtectedEnvironmentsServiceM:   mocks.NewMockGroupProtectedEnvironmentsService(m),
 		GroupRepositoryStorageMoveServiceM:   mocks.NewMockGroupRepositoryStorageMoveService(m),
 		GroupSSHCertificatesServiceM:         mocks.NewMockGroupSSHCertificatesService(m),
+		GroupSecuritySettingsServiceM:        mocks.NewMockGroupSecuritySettingsService(m),
 		GroupVariablesServiceM:               mocks.NewMockGroupVariablesService(m),
 		GroupWikisServiceM:                   mocks.NewMockGroupWikisService(m),
 		GroupsServiceM:                       mocks.NewMockGroupsService(m),
@@ -521,6 +523,11 @@ func (m *MockClient) GroupRepositoryStorageMove() GroupRepositoryStorageMoveServ
 // GroupSSHCertificates returns a mocked [GroupSSHCertificatesService] service.
 func (m *MockClient) GroupSSHCertificates() GroupSSHCertificatesService {
 	return m.GroupSSHCertificatesServiceM
+}
+
+// GroupSecuritySettings returns a mocked [GroupSecuritySettingsService] service.
+func (m *MockClient) GroupSecuritySettings() GroupSecuritySettingsService {
+	return m.GroupSecuritySettingsServiceM
 }
 
 // GroupVariables returns a mocked [GroupVariablesService] service.

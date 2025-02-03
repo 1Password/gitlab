@@ -72,6 +72,7 @@ type client struct {
 	groupProtectedEnvironmentsService   GroupProtectedEnvironmentsService
 	groupRepositoryStorageMoveService   GroupRepositoryStorageMoveService
 	groupSSHCertificatesService         GroupSSHCertificatesService
+	groupSecuritySettingsService        GroupSecuritySettingsService
 	groupVariablesService               GroupVariablesService
 	groupWikisService                   GroupWikisService
 	groupsService                       GroupsService
@@ -382,6 +383,11 @@ func (c *client) GroupRepositoryStorageMove() GroupRepositoryStorageMoveService 
 // GroupSSHCertificates returns the [GroupSSHCertificatesService] service for the client.
 func (c *client) GroupSSHCertificates() GroupSSHCertificatesService {
 	return c.groupSSHCertificatesService
+}
+
+// GroupSecuritySettings returns the [GroupSecuritySettingsService] service for the client.
+func (c *client) GroupSecuritySettings() GroupSecuritySettingsService {
+	return c.groupSecuritySettingsService
 }
 
 // GroupVariables returns the [GroupVariablesService] service for the client.
@@ -844,6 +850,7 @@ func FromClient(gl *gitlab.Client) Client {
 		groupProtectedEnvironmentsService:   gl.GroupProtectedEnvironments,
 		groupRepositoryStorageMoveService:   gl.GroupRepositoryStorageMove,
 		groupSSHCertificatesService:         gl.GroupSSHCertificates,
+		groupSecuritySettingsService:        gl.GroupSecuritySettings,
 		groupVariablesService:               gl.GroupVariables,
 		groupWikisService:                   gl.GroupWikis,
 		groupsService:                       gl.Groups,

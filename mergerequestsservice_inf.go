@@ -51,6 +51,11 @@ type MergeRequestsService interface {
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#list-merge-request-diffs
 	ListMergeRequestDiffs(pid interface{}, mergeRequest int, opt *ListMergeRequestDiffsOptions, options ...RequestOptionFunc) ([]*MergeRequestDiff, *Response, error)
+	// ShowMergeRequestRawDiffs Show raw diffs of the files changed in a merge request
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/merge_requests.html#show-merge-request-raw-diffs
+	ShowMergeRequestRawDiffs(pid interface{}, mergeRequest int, opt *ShowMergeRequestRawDiffsOptions, options ...RequestOptionFunc) ([]byte, *Response, error)
 	// GetMergeRequestParticipants gets a list of merge request participants.
 	//
 	// GitLab API docs:

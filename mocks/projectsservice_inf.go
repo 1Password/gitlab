@@ -10,6 +10,7 @@
 package mocks
 
 import (
+	bytes "bytes"
 	io "io"
 	reflect "reflect"
 
@@ -368,6 +369,27 @@ func (mr *MockProjectsServiceMockRecorder) DeleteSharedProjectFromGroup(pid, gro
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, groupID}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteSharedProjectFromGroup", reflect.TypeOf((*MockProjectsService)(nil).DeleteSharedProjectFromGroup), varargs...)
+}
+
+// DownloadAvatar mocks base method.
+func (m *MockProjectsService) DownloadAvatar(pid any, options ...gitlab.RequestOptionFunc) (*bytes.Reader, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DownloadAvatar", varargs...)
+	ret0, _ := ret[0].(*bytes.Reader)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// DownloadAvatar indicates an expected call of DownloadAvatar.
+func (mr *MockProjectsServiceMockRecorder) DownloadAvatar(pid any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DownloadAvatar", reflect.TypeOf((*MockProjectsService)(nil).DownloadAvatar), varargs...)
 }
 
 // EditProject mocks base method.

@@ -3,6 +3,7 @@
 package gitlab
 
 import (
+	"bytes"
 	"io"
 )
 
@@ -169,13 +170,22 @@ type ProjectsService interface {
 	DeleteProjectForkRelation(pid interface{}, options ...RequestOptionFunc) (*Response, error)
 	// UploadFile uploads a file.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/projects.html#upload-a-file
+	// Deprecated: UploadFile is deprecated and will be removed in a future release.
+	// Use [ProjectMarkdownUploadsService.UploadProjectMarkdown] instead for uploading
+	// markdown files to a project.
+	//
+	// GitLab API docs: https://docs.gitlab.com/ee/api/project_markdown_uploads.html#upload-a-file
 	UploadFile(pid interface{}, content io.Reader, filename string, options ...RequestOptionFunc) (*ProjectFile, *Response, error)
 	// UploadAvatar uploads an avatar.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/projects.html#upload-a-project-avatar
 	UploadAvatar(pid interface{}, avatar io.Reader, filename string, options ...RequestOptionFunc) (*Project, *Response, error)
+	// DownloadAvatar downloads an avatar.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/projects.html#download-a-project-avatar
+	DownloadAvatar(pid interface{}, options ...RequestOptionFunc) (*bytes.Reader, *Response, error)
 	// ListProjectForks gets a list of project forks.
 	//
 	// GitLab API docs:
