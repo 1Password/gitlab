@@ -5,7 +5,7 @@ go 1.23
 require (
 	gitlab.com/gitlab-org/api/client-go v0.121.0
 	go.uber.org/mock v0.5.0
-	gotest.tools/v3 v3.5.1
+	gotest.tools/v3 v3.5.2
 )
 
 require (
