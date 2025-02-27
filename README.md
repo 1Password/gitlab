@@ -95,6 +95,9 @@ tool.
 The templates used can be found in the `embed` directory in the same CLI
 directory.
 
+When you bump dependency versions — specifically, the client-go package — be
+sure to run `mise generate` to pull in the latest changes to the package.
+
 ## Special Thanks
 
 Huge special thanks to the [mockgen] and [ifacemaker] project for making
