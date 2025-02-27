@@ -1,4 +1,4 @@
-module github.com/jaredallard/gitlab
+module github.com/1password/gitlab
 
 go 1.23
 

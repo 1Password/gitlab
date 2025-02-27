@@ -72,7 +72,7 @@ footer = """"""
 trim = true
 # postprocessors
 postprocessors = [
-  { pattern = '<REPO>', replace = "https://github.com/jaredallard/gitlab" }, # replace repository URL
+  { pattern = '<REPO>', replace = "https://github.com/1password/gitlab" }, # replace repository URL
 ]
 
 [git]

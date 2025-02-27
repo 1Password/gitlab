@@ -21,7 +21,7 @@ package gitlab_test
 import (
 	"testing"
 
-	"github.com/jaredallard/gitlab"
+	"github.com/1password/gitlab"
 	"gotest.tools/v3/assert"
 )
 
