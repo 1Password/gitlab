@@ -49,4 +49,8 @@ run = "gotestsum"
 
 ## <<Stencil::Block(custom)>>
 
+[tasks.generate]
+description = "Run codegen"
+run = ["bun install","go run ./tools/codegen"]
+
 ## <</Stencil::Block>>
