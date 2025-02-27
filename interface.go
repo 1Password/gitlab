@@ -30,6 +30,7 @@ type Client interface {
 	AwardEmoji() AwardEmojiService
 	Branches() BranchesService
 	BroadcastMessage() BroadcastMessagesService
+	BulkImports() BulkImportsService
 	CIYMLTemplate() CIYMLTemplatesService
 	ClusterAgents() ClusterAgentsService
 	Commits() CommitsService

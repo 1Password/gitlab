@@ -831,9 +831,9 @@ func (mr *MockGroupsServiceMockRecorder) RestoreGroup(gid any, options ...any) *
 }
 
 // RotateServiceAccountPersonalAccessToken mocks base method.
-func (m *MockGroupsService) RotateServiceAccountPersonalAccessToken(gid any, serviceAccount, token int, options ...gitlab.RequestOptionFunc) (*gitlab.PersonalAccessToken, *gitlab.Response, error) {
+func (m *MockGroupsService) RotateServiceAccountPersonalAccessToken(gid any, serviceAccount, token int, opt *gitlab.RotateServiceAccountPersonalAccessTokenOptions, options ...gitlab.RequestOptionFunc) (*gitlab.PersonalAccessToken, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, serviceAccount, token}
+	varargs := []any{gid, serviceAccount, token, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -845,9 +845,9 @@ func (m *MockGroupsService) RotateServiceAccountPersonalAccessToken(gid any, ser
 }
 
 // RotateServiceAccountPersonalAccessToken indicates an expected call of RotateServiceAccountPersonalAccessToken.
-func (mr *MockGroupsServiceMockRecorder) RotateServiceAccountPersonalAccessToken(gid, serviceAccount, token any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) RotateServiceAccountPersonalAccessToken(gid, serviceAccount, token, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, serviceAccount, token}, options...)
+	varargs := append([]any{gid, serviceAccount, token, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RotateServiceAccountPersonalAccessToken", reflect.TypeOf((*MockGroupsService)(nil).RotateServiceAccountPersonalAccessToken), varargs...)
 }
 

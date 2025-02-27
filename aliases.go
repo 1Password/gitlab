@@ -99,6 +99,18 @@ type CreateBroadcastMessageOptions = gitlab.CreateBroadcastMessageOptions
 // UpdateBroadcastMessageOptions is an alias to [gitlab.UpdateBroadcastMessageOptions]
 type UpdateBroadcastMessageOptions = gitlab.UpdateBroadcastMessageOptions
 
+// BulkImportStartMigrationConfiguration is an alias to [gitlab.BulkImportStartMigrationConfiguration]
+type BulkImportStartMigrationConfiguration = gitlab.BulkImportStartMigrationConfiguration
+
+// BulkImportStartMigrationEntity is an alias to [gitlab.BulkImportStartMigrationEntity]
+type BulkImportStartMigrationEntity = gitlab.BulkImportStartMigrationEntity
+
+// BulkImportStartMigrationOptions is an alias to [gitlab.BulkImportStartMigrationOptions]
+type BulkImportStartMigrationOptions = gitlab.BulkImportStartMigrationOptions
+
+// BulkImportStartMigrationResponse is an alias to [gitlab.BulkImportStartMigrationResponse]
+type BulkImportStartMigrationResponse = gitlab.BulkImportStartMigrationResponse
+
 // CIYMLTemplate is an alias to [gitlab.CIYMLTemplate]
 type CIYMLTemplate = gitlab.CIYMLTemplate
 
@@ -842,6 +854,9 @@ type CreateServiceAccountOptions = gitlab.CreateServiceAccountOptions
 
 // CreateServiceAccountPersonalAccessTokenOptions is an alias to [gitlab.CreateServiceAccountPersonalAccessTokenOptions]
 type CreateServiceAccountPersonalAccessTokenOptions = gitlab.CreateServiceAccountPersonalAccessTokenOptions
+
+// RotateServiceAccountPersonalAccessTokenOptions is an alias to [gitlab.RotateServiceAccountPersonalAccessTokenOptions]
+type RotateServiceAccountPersonalAccessTokenOptions = gitlab.RotateServiceAccountPersonalAccessTokenOptions
 
 // GroupSSHCertificate is an alias to [gitlab.GroupSSHCertificate]
 type GroupSSHCertificate = gitlab.GroupSSHCertificate
