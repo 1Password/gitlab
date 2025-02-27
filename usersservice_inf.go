@@ -64,7 +64,7 @@ type UsersService interface {
 	GetUserAssociationsCount(user int, options ...RequestOptionFunc) (*UserAssociationsCount, *Response, error)
 	// ListSSHKeys gets a list of currently authenticated user's SSH keys.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/users.html#list-ssh-keys
+	// GitLab API docs: https://docs.gitlab.com/ee/api/user_keys.html#list-all-ssh-keys
 	ListSSHKeys(opt *ListSSHKeysOptions, options ...RequestOptionFunc) ([]*SSHKey, *Response, error)
 	// ListSSHKeysForUser gets a list of a specified user's SSH keys.
 	//

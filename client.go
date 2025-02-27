@@ -34,6 +34,7 @@ type client struct {
 	awardEmojiService                   AwardEmojiService
 	branchesService                     BranchesService
 	broadcastMessagesService            BroadcastMessagesService
+	bulkImportsService                  BulkImportsService
 	cIYMLTemplatesService               CIYMLTemplatesService
 	clusterAgentsService                ClusterAgentsService
 	commitsService                      CommitsService
@@ -193,6 +194,11 @@ func (c *client) Branches() BranchesService {
 // BroadcastMessage returns the [BroadcastMessagesService] service for the client.
 func (c *client) BroadcastMessage() BroadcastMessagesService {
 	return c.broadcastMessagesService
+}
+
+// BulkImports returns the [BulkImportsService] service for the client.
+func (c *client) BulkImports() BulkImportsService {
+	return c.bulkImportsService
 }
 
 // CIYMLTemplate returns the [CIYMLTemplatesService] service for the client.
@@ -812,6 +818,7 @@ func FromClient(gl *gitlab.Client) Client {
 		awardEmojiService:                   gl.AwardEmoji,
 		branchesService:                     gl.Branches,
 		broadcastMessagesService:            gl.BroadcastMessage,
+		bulkImportsService:                  gl.BulkImports,
 		cIYMLTemplatesService:               gl.CIYMLTemplate,
 		clusterAgentsService:                gl.ClusterAgents,
 		commitsService:                      gl.Commits,

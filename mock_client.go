@@ -39,6 +39,7 @@ type MockClient struct {
 	AwardEmojiServiceM                   *mocks.MockAwardEmojiService
 	BranchesServiceM                     *mocks.MockBranchesService
 	BroadcastMessagesServiceM            *mocks.MockBroadcastMessagesService
+	BulkImportsServiceM                  *mocks.MockBulkImportsService
 	CIYMLTemplatesServiceM               *mocks.MockCIYMLTemplatesService
 	ClusterAgentsServiceM                *mocks.MockClusterAgentsService
 	CommitsServiceM                      *mocks.MockCommitsService
@@ -173,6 +174,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		AwardEmojiServiceM:                   mocks.NewMockAwardEmojiService(m),
 		BranchesServiceM:                     mocks.NewMockBranchesService(m),
 		BroadcastMessagesServiceM:            mocks.NewMockBroadcastMessagesService(m),
+		BulkImportsServiceM:                  mocks.NewMockBulkImportsService(m),
 		CIYMLTemplatesServiceM:               mocks.NewMockCIYMLTemplatesService(m),
 		ClusterAgentsServiceM:                mocks.NewMockClusterAgentsService(m),
 		CommitsServiceM:                      mocks.NewMockCommitsService(m),
@@ -333,6 +335,11 @@ func (m *MockClient) Branches() BranchesService {
 // BroadcastMessage returns a mocked [BroadcastMessagesService] service.
 func (m *MockClient) BroadcastMessage() BroadcastMessagesService {
 	return m.BroadcastMessagesServiceM
+}
+
+// BulkImports returns a mocked [BulkImportsService] service.
+func (m *MockClient) BulkImports() BulkImportsService {
+	return m.BulkImportsServiceM
 }
 
 // CIYMLTemplate returns a mocked [CIYMLTemplatesService] service.

@@ -97,7 +97,7 @@ type GroupsService interface {
 	// service account user for a group.
 	//
 	// GitLab API docs: https://docs.gitlab.com/ee/api/groups.html#create-personal-access-token-for-service-account-user
-	RotateServiceAccountPersonalAccessToken(gid interface{}, serviceAccount, token int, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
+	RotateServiceAccountPersonalAccessToken(gid interface{}, serviceAccount, token int, opt *RotateServiceAccountPersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// DeleteServiceAccount Deletes a service account user.
 	//
 	// This API endpoint works on top-level groups only. It does not work on subgroups.
