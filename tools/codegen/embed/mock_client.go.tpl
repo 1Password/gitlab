@@ -21,8 +21,8 @@ package gitlab
 import (
 	"testing"
 
-	"github.com/jaredallard/gitlab"
-	"github.com/jaredallard/gitlab/mocks"
+	"github.com/1password/gitlab"
+	"github.com/1password/gitlab/mocks"
 	"go.uber.org/mock/gomock"
 )
 

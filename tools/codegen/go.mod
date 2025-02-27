@@ -1,4 +1,4 @@
-module github.com/jaredallard/gitlab/tools/codegen
+module github.com/1password/gitlab/tools/codegen
 
 go 1.23.4
 

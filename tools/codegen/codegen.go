@@ -191,7 +191,7 @@ func generateMocks(log slogext.Logger) error {
 			return fmt.Errorf("failed to read mock file: %w", err)
 		}
 
-		b = []byte(strings.ReplaceAll(string(b), `gitlab "github.com/jaredallard/gitlab"`, `gitlab "gitlab.com/gitlab-org/api/client-go"`))
+		b = []byte(strings.ReplaceAll(string(b), `gitlab "github.com/1password/gitlab"`, `gitlab "gitlab.com/gitlab-org/api/client-go"`))
 		//nolint:gosec // Why: OK.
 		if err := os.WriteFile(filepath.Join("mocks", file), b, 0o644); err != nil {
 			return fmt.Errorf("failed to write mock file: %w", err)

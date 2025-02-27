@@ -15,7 +15,7 @@ changelog:
 release:
   prerelease: "auto"
   footer: |-
-    **Full Changelog**: https://github.com/jaredallard/gitlab/compare/{{ .PreviousTag }}...{{ .Tag }}
+    **Full Changelog**: https://github.com/1password/gitlab/compare/{{ .PreviousTag }}...{{ .Tag }}
 
 ## <<Stencil::Block(extraReleaseOpts)>>
 
