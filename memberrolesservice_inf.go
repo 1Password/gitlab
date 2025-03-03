@@ -4,19 +4,35 @@ package gitlab
 
 // MemberRolesService is an interface for [gitlab.Client.MemberRolesService]
 type MemberRolesService interface {
+	// ListInstanceMemberRoles gets all member roles in an instance.
+	// Authentication as Administrator is required.
+	//
+	// Gitlab API docs:
+	// https://docs.gitlab.com/api/member_roles/#get-all-instance-member-roles
+	ListInstanceMemberRoles(options ...RequestOptionFunc) ([]*MemberRole, *Response, error)
+	// CreateInstanceMemberRole creates an instance-wide member role.
+	//
+	// Gitlab API docs:
+	// https://docs.gitlab.com/api/member_roles/#create-a-instance-member-role
+	CreateInstanceMemberRole(opt *CreateMemberRoleOptions, options ...RequestOptionFunc) (*MemberRole, *Response, error)
+	// DeleteInstanceMemberRole deletes a member role from a specified group.
+	//
+	// Gitlab API docs:
+	// https://docs.gitlab.com/api/member_roles/#delete-an-instance-member-role
+	DeleteInstanceMemberRole(memberRoleID int, options ...RequestOptionFunc) (*Response, error)
 	// ListMemberRoles gets a list of member roles for a specified group.
 	//
 	// Gitlab API docs:
-	// https://docs.gitlab.com/ee/api/member_roles.html#list-all-member-roles-of-a-group
+	// https://docs.gitlab.com/api/member_roles/#get-all-group-member-roles
 	ListMemberRoles(gid interface{}, options ...RequestOptionFunc) ([]*MemberRole, *Response, error)
 	// CreateMemberRole creates a new member role for a specified group.
 	//
 	// Gitlab API docs:
-	// https://docs.gitlab.com/ee/api/member_roles.html#add-a-member-role-to-a-group
+	// https://docs.gitlab.com/api/member_roles/#add-a-member-role-to-a-group
 	CreateMemberRole(gid interface{}, opt *CreateMemberRoleOptions, options ...RequestOptionFunc) (*MemberRole, *Response, error)
 	// DeleteMemberRole deletes a member role from a specified group.
 	//
 	// Gitlab API docs:
-	// https://docs.gitlab.com/ee/api/member_roles.html#remove-member-role-of-a-group
+	// https://docs.gitlab.com/api/member_roles/#remove-member-role-of-a-group
 	DeleteMemberRole(gid interface{}, memberRole int, options ...RequestOptionFunc) (*Response, error)
 }

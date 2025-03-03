@@ -125,14 +125,14 @@ func (mr *MockMergeRequestsServiceMockRecorder) CreateMergeRequest(pid, opt any,
 }
 
 // CreateMergeRequestDependency mocks base method.
-func (m *MockMergeRequestsService) CreateMergeRequestDependency(pid any, mergeRequest int, opts gitlab.CreateMergeRequestDependencyOptions, options ...gitlab.RequestOptionFunc) ([]gitlab.MergeRequestDependency, *gitlab.Response, error) {
+func (m *MockMergeRequestsService) CreateMergeRequestDependency(pid any, mergeRequest int, opts gitlab.CreateMergeRequestDependencyOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MergeRequestDependency, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, mergeRequest, opts}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "CreateMergeRequestDependency", varargs...)
-	ret0, _ := ret[0].([]gitlab.MergeRequestDependency)
+	ret0, _ := ret[0].(*gitlab.MergeRequestDependency)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2
@@ -459,14 +459,14 @@ func (mr *MockMergeRequestsServiceMockRecorder) GetTimeSpent(pid, mergeRequest a
 }
 
 // ListGroupMergeRequests mocks base method.
-func (m *MockMergeRequestsService) ListGroupMergeRequests(gid any, opt *gitlab.ListGroupMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockMergeRequestsService) ListGroupMergeRequests(gid any, opt *gitlab.ListGroupMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{gid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "ListGroupMergeRequests", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2
@@ -522,14 +522,14 @@ func (mr *MockMergeRequestsServiceMockRecorder) ListMergeRequestPipelines(pid, m
 }
 
 // ListMergeRequests mocks base method.
-func (m *MockMergeRequestsService) ListMergeRequests(opt *gitlab.ListMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockMergeRequestsService) ListMergeRequests(opt *gitlab.ListMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "ListMergeRequests", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2
@@ -543,14 +543,14 @@ func (mr *MockMergeRequestsServiceMockRecorder) ListMergeRequests(opt any, optio
 }
 
 // ListProjectMergeRequests mocks base method.
-func (m *MockMergeRequestsService) ListProjectMergeRequests(pid any, opt *gitlab.ListProjectMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockMergeRequestsService) ListProjectMergeRequests(pid any, opt *gitlab.ListProjectMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "ListProjectMergeRequests", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2

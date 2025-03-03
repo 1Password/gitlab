@@ -8,27 +8,27 @@ type ProjectAccessTokensService interface {
 	// project.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/project_access_tokens.html#list-project-access-tokens
+	// https://docs.gitlab.com/api/project_access_tokens/#list-all-project-access-tokens
 	ListProjectAccessTokens(pid interface{}, opt *ListProjectAccessTokensOptions, options ...RequestOptionFunc) ([]*ProjectAccessToken, *Response, error)
 	// GetProjectAccessToken gets a single project access tokens in a project.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/project_access_tokens.html#get-a-project-access-token
+	// https://docs.gitlab.com/api/project_access_tokens/#get-details-on-a-project-access-token
 	GetProjectAccessToken(pid interface{}, id int, options ...RequestOptionFunc) (*ProjectAccessToken, *Response, error)
 	// CreateProjectAccessToken creates a new project access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/project_access_tokens.html#create-a-project-access-token
+	// https://docs.gitlab.com/api/project_access_tokens/#create-a-project-access-token
 	CreateProjectAccessToken(pid interface{}, opt *CreateProjectAccessTokenOptions, options ...RequestOptionFunc) (*ProjectAccessToken, *Response, error)
 	// RotateProjectAccessToken revokes a project access token and returns a new
 	// project access token that expires in one week per default.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/project_access_tokens.html#rotate-a-project-access-token
+	// https://docs.gitlab.com/api/project_access_tokens/#rotate-a-project-access-token
 	RotateProjectAccessToken(pid interface{}, id int, opt *RotateProjectAccessTokenOptions, options ...RequestOptionFunc) (*ProjectAccessToken, *Response, error)
 	// RevokeProjectAccessToken revokes a project access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/project_access_tokens.html#revoke-a-project-access-token
+	// https://docs.gitlab.com/api/project_access_tokens/#revoke-a-project-access-token
 	RevokeProjectAccessToken(pid interface{}, id int, options ...RequestOptionFunc) (*Response, error)
 }

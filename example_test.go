@@ -35,7 +35,9 @@ func ExampleNewMockClient() {
 	gl.MergeRequestsServiceM.EXPECT().
 		GetMergeRequest(1, 1, &gitlab.GetMergeRequestsOptions{}).
 		Return(&gitlab.MergeRequest{
-			ID: 1,
+			BasicMergeRequest: gitlab.BasicMergeRequest{
+				ID: 1,
+			},
 		}, nil, nil)
 
 	mr, _, err := gl.MergeRequests().GetMergeRequest(1, 1, &gitlab.GetMergeRequestsOptions{})

@@ -67,7 +67,9 @@ type Client interface {
 	GroupMembers() GroupMembersService
 	GroupMilestones() GroupMilestonesService
 	GroupProtectedEnvironments() GroupProtectedEnvironmentsService
+	GroupReleases() GroupReleasesService
 	GroupRepositoryStorageMove() GroupRepositoryStorageMoveService
+	GroupSCIM() GroupSCIMService
 	GroupSSHCertificates() GroupSSHCertificatesService
 	GroupSecuritySettings() GroupSecuritySettingsService
 	GroupVariables() GroupVariablesService
@@ -116,6 +118,7 @@ type Client interface {
 	ProjectMembers() ProjectMembersService
 	ProjectMirrors() ProjectMirrorService
 	ProjectRepositoryStorageMove() ProjectRepositoryStorageMoveService
+	ProjectSecuritySettings() ProjectSecuritySettingsService
 	ProjectSnippets() ProjectSnippetsService
 	ProjectTemplates() ProjectTemplatesService
 	ProjectVariables() ProjectVariablesService
@@ -137,6 +140,7 @@ type Client interface {
 	ResourceWeightEvents() ResourceWeightEventsService
 	Runners() RunnersService
 	Search() SearchService
+	SecureFiles() SecureFilesService
 	Services() ServicesService
 	Settings() SettingsService
 	Sidekiq() SidekiqService

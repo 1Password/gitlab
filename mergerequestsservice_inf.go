@@ -11,17 +11,17 @@ type MergeRequestsService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#list-merge-requests
-	ListMergeRequests(opt *ListMergeRequestsOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListMergeRequests(opt *ListMergeRequestsOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// ListProjectMergeRequests gets all merge requests for this project.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#list-project-merge-requests
-	ListProjectMergeRequests(pid interface{}, opt *ListProjectMergeRequestsOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListProjectMergeRequests(pid interface{}, opt *ListProjectMergeRequestsOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// ListGroupMergeRequests gets all merge requests for this group.
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#list-group-merge-requests
-	ListGroupMergeRequests(gid interface{}, opt *ListGroupMergeRequestsOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListGroupMergeRequests(gid interface{}, opt *ListGroupMergeRequestsOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// GetMergeRequest shows information about a single merge request.
 	//
 	// GitLab API docs:
@@ -183,7 +183,7 @@ type MergeRequestsService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/merge_requests.html#create-a-merge-request-dependency
-	CreateMergeRequestDependency(pid interface{}, mergeRequest int, opts CreateMergeRequestDependencyOptions, options ...RequestOptionFunc) ([]MergeRequestDependency, *Response, error)
+	CreateMergeRequestDependency(pid interface{}, mergeRequest int, opts CreateMergeRequestDependencyOptions, options ...RequestOptionFunc) (*MergeRequestDependency, *Response, error)
 	// DeleteMergeRequestDependency deletes a merge request dependency for a given
 	// merge request.
 	//

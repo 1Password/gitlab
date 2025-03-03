@@ -714,6 +714,9 @@ type AddGroupHookOptions = gitlab.AddGroupHookOptions
 // EditGroupHookOptions is an alias to [gitlab.EditGroupHookOptions]
 type EditGroupHookOptions = gitlab.EditGroupHookOptions
 
+// SetHookURLVariableOptions is an alias to [gitlab.SetHookURLVariableOptions]
+type SetHookURLVariableOptions = gitlab.SetHookURLVariableOptions
+
 // GroupImportFileOptions is an alias to [gitlab.GroupImportFileOptions]
 type GroupImportFileOptions = gitlab.GroupImportFileOptions
 
@@ -822,6 +825,9 @@ type UpdateGroupEnvironmentAccessOptions = gitlab.UpdateGroupEnvironmentAccessOp
 // UpdateGroupEnvironmentApprovalRuleOptions is an alias to [gitlab.UpdateGroupEnvironmentApprovalRuleOptions]
 type UpdateGroupEnvironmentApprovalRuleOptions = gitlab.UpdateGroupEnvironmentApprovalRuleOptions
 
+// ListGroupReleasesOptions is an alias to [gitlab.ListGroupReleasesOptions]
+type ListGroupReleasesOptions = gitlab.ListGroupReleasesOptions
+
 // GroupRepositoryStorageMove is an alias to [gitlab.GroupRepositoryStorageMove]
 type GroupRepositoryStorageMove = gitlab.GroupRepositoryStorageMove
 
@@ -837,6 +843,12 @@ type ScheduleStorageMoveForGroupOptions = gitlab.ScheduleStorageMoveForGroupOpti
 // ScheduleAllGroupStorageMovesOptions is an alias to [gitlab.ScheduleAllGroupStorageMovesOptions]
 type ScheduleAllGroupStorageMovesOptions = gitlab.ScheduleAllGroupStorageMovesOptions
 
+// GroupSCIMIdentity is an alias to [gitlab.GroupSCIMIdentity]
+type GroupSCIMIdentity = gitlab.GroupSCIMIdentity
+
+// UpdateSCIMIdentityOptions is an alias to [gitlab.UpdateSCIMIdentityOptions]
+type UpdateSCIMIdentityOptions = gitlab.UpdateSCIMIdentityOptions
+
 // GroupSecuritySettings is an alias to [gitlab.GroupSecuritySettings]
 type GroupSecuritySettings = gitlab.GroupSecuritySettings
 
@@ -851,6 +863,9 @@ type ListServiceAccountsOptions = gitlab.ListServiceAccountsOptions
 
 // CreateServiceAccountOptions is an alias to [gitlab.CreateServiceAccountOptions]
 type CreateServiceAccountOptions = gitlab.CreateServiceAccountOptions
+
+// DeleteServiceAccountOptions is an alias to [gitlab.DeleteServiceAccountOptions]
+type DeleteServiceAccountOptions = gitlab.DeleteServiceAccountOptions
 
 // CreateServiceAccountPersonalAccessTokenOptions is an alias to [gitlab.CreateServiceAccountPersonalAccessTokenOptions]
 type CreateServiceAccountPersonalAccessTokenOptions = gitlab.CreateServiceAccountPersonalAccessTokenOptions
@@ -879,6 +894,9 @@ type CreateGroupVariableOptions = gitlab.CreateGroupVariableOptions
 // UpdateGroupVariableOptions is an alias to [gitlab.UpdateGroupVariableOptions]
 type UpdateGroupVariableOptions = gitlab.UpdateGroupVariableOptions
 
+// RemoveGroupVariableOptions is an alias to [gitlab.RemoveGroupVariableOptions]
+type RemoveGroupVariableOptions = gitlab.RemoveGroupVariableOptions
+
 // GroupWiki is an alias to [gitlab.GroupWiki]
 type GroupWiki = gitlab.GroupWiki
 
@@ -896,6 +914,9 @@ type EditGroupWikiPageOptions = gitlab.EditGroupWikiPageOptions
 
 // Group is an alias to [gitlab.Group]
 type Group = gitlab.Group
+
+// SharedWithGroup is an alias to [gitlab.SharedWithGroup]
+type SharedWithGroup = gitlab.SharedWithGroup
 
 // BranchProtectionDefaults is an alias to [gitlab.BranchProtectionDefaults]
 type BranchProtectionDefaults = gitlab.BranchProtectionDefaults
@@ -1212,6 +1233,9 @@ type CreateMergeRequestApprovalRuleOptions = gitlab.CreateMergeRequestApprovalRu
 // UpdateMergeRequestApprovalRuleOptions is an alias to [gitlab.UpdateMergeRequestApprovalRuleOptions]
 type UpdateMergeRequestApprovalRuleOptions = gitlab.UpdateMergeRequestApprovalRuleOptions
 
+// BasicMergeRequest is an alias to [gitlab.BasicMergeRequest]
+type BasicMergeRequest = gitlab.BasicMergeRequest
+
 // MergeRequest is an alias to [gitlab.MergeRequest]
 type MergeRequest = gitlab.MergeRequest
 
@@ -1325,6 +1349,9 @@ type NamespaceExistsOptions = gitlab.NamespaceExistsOptions
 
 // Note is an alias to [gitlab.Note]
 type Note = gitlab.Note
+
+// NoteAuthor is an alias to [gitlab.NoteAuthor]
+type NoteAuthor = gitlab.NoteAuthor
 
 // NotePosition is an alias to [gitlab.NotePosition]
 type NotePosition = gitlab.NotePosition
@@ -1667,6 +1694,12 @@ type ScheduleStorageMoveForProjectOptions = gitlab.ScheduleStorageMoveForProject
 
 // ScheduleAllProjectStorageMovesOptions is an alias to [gitlab.ScheduleAllProjectStorageMovesOptions]
 type ScheduleAllProjectStorageMovesOptions = gitlab.ScheduleAllProjectStorageMovesOptions
+
+// ProjectSecuritySettings is an alias to [gitlab.ProjectSecuritySettings]
+type ProjectSecuritySettings = gitlab.ProjectSecuritySettings
+
+// UpdateProjectSecuritySettingsOptions is an alias to [gitlab.UpdateProjectSecuritySettingsOptions]
+type UpdateProjectSecuritySettingsOptions = gitlab.UpdateProjectSecuritySettingsOptions
 
 // ListProjectSnippetsOptions is an alias to [gitlab.ListProjectSnippetsOptions]
 type ListProjectSnippetsOptions = gitlab.ListProjectSnippetsOptions
@@ -2126,6 +2159,21 @@ type SearchOptions = gitlab.SearchOptions
 
 // Blob is an alias to [gitlab.Blob]
 type Blob = gitlab.Blob
+
+// SecureFile is an alias to [gitlab.SecureFile]
+type SecureFile = gitlab.SecureFile
+
+// SecureFileMetadata is an alias to [gitlab.SecureFileMetadata]
+type SecureFileMetadata = gitlab.SecureFileMetadata
+
+// SecureFileIssuer is an alias to [gitlab.SecureFileIssuer]
+type SecureFileIssuer = gitlab.SecureFileIssuer
+
+// SecureFileSubject is an alias to [gitlab.SecureFileSubject]
+type SecureFileSubject = gitlab.SecureFileSubject
+
+// ListProjectSecureFilesOptions is an alias to [gitlab.ListProjectSecureFilesOptions]
+type ListProjectSecureFilesOptions = gitlab.ListProjectSecureFilesOptions
 
 // Service is an alias to [gitlab.Service]
 type Service = gitlab.Service
@@ -2700,6 +2748,12 @@ type Version = gitlab.Version
 // Wiki is an alias to [gitlab.Wiki]
 type Wiki = gitlab.Wiki
 
+// WikiAttachment is an alias to [gitlab.WikiAttachment]
+type WikiAttachment = gitlab.WikiAttachment
+
+// WikiAttachmentLink is an alias to [gitlab.WikiAttachmentLink]
+type WikiAttachmentLink = gitlab.WikiAttachmentLink
+
 // ListWikisOptions is an alias to [gitlab.ListWikisOptions]
 type ListWikisOptions = gitlab.ListWikisOptions
 
@@ -2711,3 +2765,6 @@ type CreateWikiPageOptions = gitlab.CreateWikiPageOptions
 
 // EditWikiPageOptions is an alias to [gitlab.EditWikiPageOptions]
 type EditWikiPageOptions = gitlab.EditWikiPageOptions
+
+// UploadWikiAttachmentOptions is an alias to [gitlab.UploadWikiAttachmentOptions]
+type UploadWikiAttachmentOptions = gitlab.UploadWikiAttachmentOptions

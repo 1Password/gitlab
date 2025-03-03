@@ -76,7 +76,9 @@ type MockClient struct {
 	GroupMembersServiceM                 *mocks.MockGroupMembersService
 	GroupMilestonesServiceM              *mocks.MockGroupMilestonesService
 	GroupProtectedEnvironmentsServiceM   *mocks.MockGroupProtectedEnvironmentsService
+	GroupReleasesServiceM                *mocks.MockGroupReleasesService
 	GroupRepositoryStorageMoveServiceM   *mocks.MockGroupRepositoryStorageMoveService
+	GroupSCIMServiceM                    *mocks.MockGroupSCIMService
 	GroupSSHCertificatesServiceM         *mocks.MockGroupSSHCertificatesService
 	GroupSecuritySettingsServiceM        *mocks.MockGroupSecuritySettingsService
 	GroupVariablesServiceM               *mocks.MockGroupVariablesService
@@ -125,6 +127,7 @@ type MockClient struct {
 	ProjectMembersServiceM               *mocks.MockProjectMembersService
 	ProjectMirrorServiceM                *mocks.MockProjectMirrorService
 	ProjectRepositoryStorageMoveServiceM *mocks.MockProjectRepositoryStorageMoveService
+	ProjectSecuritySettingsServiceM      *mocks.MockProjectSecuritySettingsService
 	ProjectSnippetsServiceM              *mocks.MockProjectSnippetsService
 	ProjectTemplatesServiceM             *mocks.MockProjectTemplatesService
 	ProjectVariablesServiceM             *mocks.MockProjectVariablesService
@@ -146,6 +149,7 @@ type MockClient struct {
 	ResourceWeightEventsServiceM         *mocks.MockResourceWeightEventsService
 	RunnersServiceM                      *mocks.MockRunnersService
 	SearchServiceM                       *mocks.MockSearchService
+	SecureFilesServiceM                  *mocks.MockSecureFilesService
 	ServicesServiceM                     *mocks.MockServicesService
 	SettingsServiceM                     *mocks.MockSettingsService
 	SidekiqServiceM                      *mocks.MockSidekiqService
@@ -211,7 +215,9 @@ func NewMockClient(t *testing.T) *MockClient {
 		GroupMembersServiceM:                 mocks.NewMockGroupMembersService(m),
 		GroupMilestonesServiceM:              mocks.NewMockGroupMilestonesService(m),
 		GroupProtectedEnvironmentsServiceM:   mocks.NewMockGroupProtectedEnvironmentsService(m),
+		GroupReleasesServiceM:                mocks.NewMockGroupReleasesService(m),
 		GroupRepositoryStorageMoveServiceM:   mocks.NewMockGroupRepositoryStorageMoveService(m),
+		GroupSCIMServiceM:                    mocks.NewMockGroupSCIMService(m),
 		GroupSSHCertificatesServiceM:         mocks.NewMockGroupSSHCertificatesService(m),
 		GroupSecuritySettingsServiceM:        mocks.NewMockGroupSecuritySettingsService(m),
 		GroupVariablesServiceM:               mocks.NewMockGroupVariablesService(m),
@@ -260,6 +266,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		ProjectMembersServiceM:               mocks.NewMockProjectMembersService(m),
 		ProjectMirrorServiceM:                mocks.NewMockProjectMirrorService(m),
 		ProjectRepositoryStorageMoveServiceM: mocks.NewMockProjectRepositoryStorageMoveService(m),
+		ProjectSecuritySettingsServiceM:      mocks.NewMockProjectSecuritySettingsService(m),
 		ProjectSnippetsServiceM:              mocks.NewMockProjectSnippetsService(m),
 		ProjectTemplatesServiceM:             mocks.NewMockProjectTemplatesService(m),
 		ProjectVariablesServiceM:             mocks.NewMockProjectVariablesService(m),
@@ -281,6 +288,7 @@ func NewMockClient(t *testing.T) *MockClient {
 		ResourceWeightEventsServiceM:         mocks.NewMockResourceWeightEventsService(m),
 		RunnersServiceM:                      mocks.NewMockRunnersService(m),
 		SearchServiceM:                       mocks.NewMockSearchService(m),
+		SecureFilesServiceM:                  mocks.NewMockSecureFilesService(m),
 		ServicesServiceM:                     mocks.NewMockServicesService(m),
 		SettingsServiceM:                     mocks.NewMockSettingsService(m),
 		SidekiqServiceM:                      mocks.NewMockSidekiqService(m),
@@ -522,9 +530,19 @@ func (m *MockClient) GroupProtectedEnvironments() GroupProtectedEnvironmentsServ
 	return m.GroupProtectedEnvironmentsServiceM
 }
 
+// GroupReleases returns a mocked [GroupReleasesService] service.
+func (m *MockClient) GroupReleases() GroupReleasesService {
+	return m.GroupReleasesServiceM
+}
+
 // GroupRepositoryStorageMove returns a mocked [GroupRepositoryStorageMoveService] service.
 func (m *MockClient) GroupRepositoryStorageMove() GroupRepositoryStorageMoveService {
 	return m.GroupRepositoryStorageMoveServiceM
+}
+
+// GroupSCIM returns a mocked [GroupSCIMService] service.
+func (m *MockClient) GroupSCIM() GroupSCIMService {
+	return m.GroupSCIMServiceM
 }
 
 // GroupSSHCertificates returns a mocked [GroupSSHCertificatesService] service.
@@ -767,6 +785,11 @@ func (m *MockClient) ProjectRepositoryStorageMove() ProjectRepositoryStorageMove
 	return m.ProjectRepositoryStorageMoveServiceM
 }
 
+// ProjectSecuritySettings returns a mocked [ProjectSecuritySettingsService] service.
+func (m *MockClient) ProjectSecuritySettings() ProjectSecuritySettingsService {
+	return m.ProjectSecuritySettingsServiceM
+}
+
 // ProjectSnippets returns a mocked [ProjectSnippetsService] service.
 func (m *MockClient) ProjectSnippets() ProjectSnippetsService {
 	return m.ProjectSnippetsServiceM
@@ -870,6 +893,11 @@ func (m *MockClient) Runners() RunnersService {
 // Search returns a mocked [SearchService] service.
 func (m *MockClient) Search() SearchService {
 	return m.SearchServiceM
+}
+
+// SecureFiles returns a mocked [SecureFilesService] service.
+func (m *MockClient) SecureFiles() SecureFilesService {
+	return m.SecureFilesServiceM
 }
 
 // Services returns a mocked [ServicesService] service.

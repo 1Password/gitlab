@@ -124,14 +124,14 @@ func (mr *MockMilestonesServiceMockRecorder) GetMilestoneIssues(pid, milestone, 
 }
 
 // GetMilestoneMergeRequests mocks base method.
-func (m *MockMilestonesService) GetMilestoneMergeRequests(pid any, milestone int, opt *gitlab.GetMilestoneMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockMilestonesService) GetMilestoneMergeRequests(pid any, milestone int, opt *gitlab.GetMilestoneMergeRequestsOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, milestone, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "GetMilestoneMergeRequests", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2

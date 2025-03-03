@@ -51,7 +51,7 @@ type CommitsService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/commits.html#list-merge-requests-associated-with-a-commit
-	ListMergeRequestsByCommit(pid interface{}, sha string, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListMergeRequestsByCommit(pid interface{}, sha string, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// CherryPickCommit cherry picks a commit to a given branch.
 	//
 	// GitLab API docs: https://docs.gitlab.com/ee/api/commits.html#cherry-pick-a-commit

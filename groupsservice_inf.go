@@ -11,28 +11,35 @@ import (
 type GroupsService interface {
 	// ListGroupHooks gets a list of group hooks.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/groups.html#list-group-hooks
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#list-group-hooks
 	ListGroupHooks(gid interface{}, opt *ListGroupHooksOptions, options ...RequestOptionFunc) ([]*GroupHook, *Response, error)
 	// GetGroupHook gets a specific hook for a group.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/groups.html#get-group-hook
-	GetGroupHook(pid interface{}, hook int, options ...RequestOptionFunc) (*GroupHook, *Response, error)
-	// AddGroupHook create a new group scoped webhook.
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#get-a-group-hook
+	GetGroupHook(gid interface{}, hook int, options ...RequestOptionFunc) (*GroupHook, *Response, error)
+	// ResendGroupHookEvent resends a specific hook event.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/groups.html#add-group-hook
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#resend-group-hook-event
+	ResendGroupHookEvent(gid interface{}, hook int, hookEventID int, options ...RequestOptionFunc) (*Response, error)
+	// AddGroupHook creates a new group scoped webhook.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#add-a-group-hook
 	AddGroupHook(gid interface{}, opt *AddGroupHookOptions, options ...RequestOptionFunc) (*GroupHook, *Response, error)
 	// EditGroupHook edits a hook for a specified group.
 	//
 	// Gitlab API docs:
-	// https://docs.gitlab.com/ee/api/groups.html#edit-group-hook
-	EditGroupHook(pid interface{}, hook int, opt *EditGroupHookOptions, options ...RequestOptionFunc) (*GroupHook, *Response, error)
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#edit-group-hook
+	EditGroupHook(gid interface{}, hook int, opt *EditGroupHookOptions, options ...RequestOptionFunc) (*GroupHook, *Response, error)
 	// DeleteGroupHook removes a hook from a group. This is an idempotent
 	// method and can be called multiple times.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/groups.html#delete-group-hook
-	DeleteGroupHook(pid interface{}, hook int, options ...RequestOptionFunc) (*Response, error)
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#delete-a-group-hook
+	DeleteGroupHook(gid interface{}, hook int, options ...RequestOptionFunc) (*Response, error)
 	// TriggerTestGroupHook triggers a test hook for a specified group.
 	//
 	// GitLab API docs:
@@ -41,13 +48,23 @@ type GroupsService interface {
 	// SetGroupCustomHeader creates or updates a group custom webhook header.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/groups.html#set-a-custom-header
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#set-a-custom-header
 	SetGroupCustomHeader(gid interface{}, hook int, key string, opt *SetHookCustomHeaderOptions, options ...RequestOptionFunc) (*Response, error)
 	// DeleteGroupCustomHeader deletes a group custom webhook header.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/groups.html#delete-a-custom-header
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#delete-a-custom-header
 	DeleteGroupCustomHeader(gid interface{}, hook int, key string, options ...RequestOptionFunc) (*Response, error)
+	// SetGroupHookURLVariable sets a group hook URL variable.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#set-a-url-variable
+	SetGroupHookURLVariable(gid interface{}, hook int, key string, opt *SetHookURLVariableOptions, options ...RequestOptionFunc) (*Response, error)
+	// DeleteGroupHookURLVariable sets a group hook URL variable.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_webhooks.html#delete-a-url-variable
+	DeleteGroupHookURLVariable(gid interface{}, hook int, key string, options ...RequestOptionFunc) (*Response, error)
 	// ListGroupMembers get a list of group members viewable by the authenticated
 	// user. Inherited members through ancestor groups are not included.
 	//
@@ -79,14 +96,23 @@ type GroupsService interface {
 	RemoveBillableGroupMember(gid interface{}, user int, options ...RequestOptionFunc) (*Response, error)
 	// ListServiceAccounts gets a list of service acxcounts.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/group_service_accounts.html#list-service-account-users
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_service_accounts.html#list-service-account-users
 	ListServiceAccounts(gid interface{}, opt *ListServiceAccountsOptions, options ...RequestOptionFunc) ([]*GroupServiceAccount, *Response, error)
 	// Creates a service account user.
 	//
 	// This API endpoint works on top-level groups only. It does not work on subgroups.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/groups.html#create-service-account-user
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/groups.html#create-service-account-user
 	CreateServiceAccount(gid interface{}, opt *CreateServiceAccountOptions, options ...RequestOptionFunc) (*GroupServiceAccount, *Response, error)
+	// DeleteServiceAccount Deletes a service account user.
+	//
+	// This API endpoint works on top-level groups only. It does not work on subgroups.
+	//
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/group_service_accounts.html#delete-a-service-account-user
+	DeleteServiceAccount(gid interface{}, serviceAccount int, opt *DeleteServiceAccountOptions, options ...RequestOptionFunc) (*Response, error)
 	// CreateServiceAccountPersonalAccessToken add a new Personal Access Token for a
 	// service account user for a group.
 	//
@@ -96,14 +122,9 @@ type GroupsService interface {
 	// RotateServiceAccountPersonalAccessToken rotates a Personal Access Token for a
 	// service account user for a group.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/groups.html#create-personal-access-token-for-service-account-user
+	// GitLab API docs:
+	// https://docs.gitlab.com/ee/api/groups.html#create-personal-access-token-for-service-account-user
 	RotateServiceAccountPersonalAccessToken(gid interface{}, serviceAccount, token int, opt *RotateServiceAccountPersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
-	// DeleteServiceAccount Deletes a service account user.
-	//
-	// This API endpoint works on top-level groups only. It does not work on subgroups.
-	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/group_service_accounts.html#delete-a-service-account-user
-	DeleteServiceAccount(gid interface{}, serviceAccount int, options ...RequestOptionFunc) (*Response, error)
 	// ListGroups gets a list of groups (as user: my groups, as admin: all groups).
 	//
 	// GitLab API docs:

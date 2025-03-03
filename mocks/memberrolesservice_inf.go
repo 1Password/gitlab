@@ -40,6 +40,27 @@ func (m *MockMemberRolesService) EXPECT() *MockMemberRolesServiceMockRecorder {
 	return m.recorder
 }
 
+// CreateInstanceMemberRole mocks base method.
+func (m *MockMemberRolesService) CreateInstanceMemberRole(opt *gitlab.CreateMemberRoleOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MemberRole, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "CreateInstanceMemberRole", varargs...)
+	ret0, _ := ret[0].(*gitlab.MemberRole)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// CreateInstanceMemberRole indicates an expected call of CreateInstanceMemberRole.
+func (mr *MockMemberRolesServiceMockRecorder) CreateInstanceMemberRole(opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateInstanceMemberRole", reflect.TypeOf((*MockMemberRolesService)(nil).CreateInstanceMemberRole), varargs...)
+}
+
 // CreateMemberRole mocks base method.
 func (m *MockMemberRolesService) CreateMemberRole(gid any, opt *gitlab.CreateMemberRoleOptions, options ...gitlab.RequestOptionFunc) (*gitlab.MemberRole, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -61,6 +82,26 @@ func (mr *MockMemberRolesServiceMockRecorder) CreateMemberRole(gid, opt any, opt
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CreateMemberRole", reflect.TypeOf((*MockMemberRolesService)(nil).CreateMemberRole), varargs...)
 }
 
+// DeleteInstanceMemberRole mocks base method.
+func (m *MockMemberRolesService) DeleteInstanceMemberRole(memberRoleID int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{memberRoleID}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DeleteInstanceMemberRole", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteInstanceMemberRole indicates an expected call of DeleteInstanceMemberRole.
+func (mr *MockMemberRolesServiceMockRecorder) DeleteInstanceMemberRole(memberRoleID any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{memberRoleID}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteInstanceMemberRole", reflect.TypeOf((*MockMemberRolesService)(nil).DeleteInstanceMemberRole), varargs...)
+}
+
 // DeleteMemberRole mocks base method.
 func (m *MockMemberRolesService) DeleteMemberRole(gid any, memberRole int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -79,6 +120,26 @@ func (mr *MockMemberRolesServiceMockRecorder) DeleteMemberRole(gid, memberRole a
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{gid, memberRole}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteMemberRole", reflect.TypeOf((*MockMemberRolesService)(nil).DeleteMemberRole), varargs...)
+}
+
+// ListInstanceMemberRoles mocks base method.
+func (m *MockMemberRolesService) ListInstanceMemberRoles(options ...gitlab.RequestOptionFunc) ([]*gitlab.MemberRole, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ListInstanceMemberRoles", varargs...)
+	ret0, _ := ret[0].([]*gitlab.MemberRole)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// ListInstanceMemberRoles indicates an expected call of ListInstanceMemberRoles.
+func (mr *MockMemberRolesServiceMockRecorder) ListInstanceMemberRoles(options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListInstanceMemberRoles", reflect.TypeOf((*MockMemberRolesService)(nil).ListInstanceMemberRoles), options...)
 }
 
 // ListMemberRoles mocks base method.

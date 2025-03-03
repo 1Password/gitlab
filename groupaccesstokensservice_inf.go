@@ -7,27 +7,27 @@ type GroupAccessTokensService interface {
 	// ListGroupAccessTokens gets a list of all group access tokens in a group.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/group_access_tokens.html#list-group-access-tokens
+	// https://docs.gitlab.com/api/group_access_tokens/#list-all-group-access-tokens
 	ListGroupAccessTokens(gid interface{}, opt *ListGroupAccessTokensOptions, options ...RequestOptionFunc) ([]*GroupAccessToken, *Response, error)
 	// GetGroupAccessToken gets a single group access tokens in a group.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/group_access_tokens.html#get-a-group-access-token
+	// https://docs.gitlab.com/api/group_access_tokens/#get-details-on-a-group-access-token
 	GetGroupAccessToken(gid interface{}, id int, options ...RequestOptionFunc) (*GroupAccessToken, *Response, error)
 	// CreateGroupAccessToken creates a new group access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/group_access_tokens.html#create-a-group-access-token
+	// https://docs.gitlab.com/api/group_access_tokens/#create-a-group-access-token
 	CreateGroupAccessToken(gid interface{}, opt *CreateGroupAccessTokenOptions, options ...RequestOptionFunc) (*GroupAccessToken, *Response, error)
 	// RotateGroupAccessToken revokes a group access token and returns a new group
 	// access token that expires in one week per default.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/group_access_tokens.html#rotate-a-group-access-token
+	// https://docs.gitlab.com/api/group_access_tokens/#rotate-a-group-access-token
 	RotateGroupAccessToken(gid interface{}, id int, opt *RotateGroupAccessTokenOptions, options ...RequestOptionFunc) (*GroupAccessToken, *Response, error)
 	// RevokeGroupAccessToken revokes a group access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/group_access_tokens.html#revoke-a-group-access-token
+	// https://docs.gitlab.com/api/group_access_tokens/#revoke-a-group-access-token
 	RevokeGroupAccessToken(gid interface{}, id int, options ...RequestOptionFunc) (*Response, error)
 }

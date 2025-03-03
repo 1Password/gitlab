@@ -250,14 +250,14 @@ func (mr *MockIssuesServiceMockRecorder) ListIssues(opt any, options ...any) *go
 }
 
 // ListMergeRequestsClosingIssue mocks base method.
-func (m *MockIssuesService) ListMergeRequestsClosingIssue(pid any, issue int, opt *gitlab.ListMergeRequestsClosingIssueOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockIssuesService) ListMergeRequestsClosingIssue(pid any, issue int, opt *gitlab.ListMergeRequestsClosingIssueOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, issue, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "ListMergeRequestsClosingIssue", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2
@@ -271,14 +271,14 @@ func (mr *MockIssuesServiceMockRecorder) ListMergeRequestsClosingIssue(pid, issu
 }
 
 // ListMergeRequestsRelatedToIssue mocks base method.
-func (m *MockIssuesService) ListMergeRequestsRelatedToIssue(pid any, issue int, opt *gitlab.ListMergeRequestsRelatedToIssueOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.MergeRequest, *gitlab.Response, error) {
+func (m *MockIssuesService) ListMergeRequestsRelatedToIssue(pid any, issue int, opt *gitlab.ListMergeRequestsRelatedToIssueOptions, options ...gitlab.RequestOptionFunc) ([]*gitlab.BasicMergeRequest, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
 	varargs := []any{pid, issue, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
 	ret := m.ctrl.Call(m, "ListMergeRequestsRelatedToIssue", varargs...)
-	ret0, _ := ret[0].([]*gitlab.MergeRequest)
+	ret0, _ := ret[0].([]*gitlab.BasicMergeRequest)
 	ret1, _ := ret[1].(*gitlab.Response)
 	ret2, _ := ret[2].(error)
 	return ret0, ret1, ret2

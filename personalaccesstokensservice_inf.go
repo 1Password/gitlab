@@ -7,18 +7,18 @@ type PersonalAccessTokensService interface {
 	// ListPersonalAccessTokens gets a list of all personal access tokens.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#list-personal-access-tokens
+	// https://docs.gitlab.com/api/personal_access_tokens/#list-all-personal-access-tokens
 	ListPersonalAccessTokens(opt *ListPersonalAccessTokensOptions, options ...RequestOptionFunc) ([]*PersonalAccessToken, *Response, error)
 	// GetSinglePersonalAccessTokenByID get a single personal access token by its ID.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#using-a-personal-access-token-id
+	// https://docs.gitlab.com/api/personal_access_tokens/#get-details-on-a-personal-access-token
 	GetSinglePersonalAccessTokenByID(token int, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// GetSinglePersonalAccessToken get a single personal access token by using
 	// passing the token in a header.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#using-a-request-header
+	// https://docs.gitlab.com/api/personal_access_tokens/#self-inform
 	GetSinglePersonalAccessToken(options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// RotatePersonalAccessToken is a backwards-compat shim for RotatePersonalAccessTokenByID.
 	RotatePersonalAccessToken(token int, opt *RotatePersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
@@ -26,25 +26,25 @@ type PersonalAccessTokensService interface {
 	// expires in one week per default.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#use-a-personal-access-token-id
+	// https://docs.gitlab.com/api/personal_access_tokens/#rotate-a-personal-access-token
 	RotatePersonalAccessTokenByID(token int, opt *RotatePersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// RotatePersonalAccessTokenSelf revokes the currently authenticated token
 	// and returns a new token that expires in one week per default.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#use-a-request-header
+	// https://docs.gitlab.com/api/personal_access_tokens/#self-rotate
 	RotatePersonalAccessTokenSelf(opt *RotatePersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// RevokePersonalAccessToken is a backwards-compat shim for RevokePersonalAccessTokenByID.
 	RevokePersonalAccessToken(token int, options ...RequestOptionFunc) (*Response, error)
 	// RevokePersonalAccessTokenByID revokes a personal access token by its ID.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#using-a-personal-access-token-id-1
+	// https://docs.gitlab.com/api/personal_access_tokens/#revoke-a-personal-access-token
 	RevokePersonalAccessTokenByID(token int, options ...RequestOptionFunc) (*Response, error)
 	// RevokePersonalAccessTokenSelf revokes the currently authenticated
 	// personal access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/personal_access_tokens.html#using-a-request-header-1
+	// https://docs.gitlab.com/api/personal_access_tokens/#self-revoke
 	RevokePersonalAccessTokenSelf(options ...RequestOptionFunc) (*Response, error)
 }
