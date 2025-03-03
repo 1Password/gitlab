@@ -10,6 +10,7 @@
 package mocks
 
 import (
+	io "io"
 	reflect "reflect"
 
 	gitlab "gitlab.com/gitlab-org/api/client-go"
@@ -142,4 +143,25 @@ func (mr *MockWikisServiceMockRecorder) ListWikis(pid, opt any, options ...any) 
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{pid, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListWikis", reflect.TypeOf((*MockWikisService)(nil).ListWikis), varargs...)
+}
+
+// UploadWikiAttachment mocks base method.
+func (m *MockWikisService) UploadWikiAttachment(pid any, content io.Reader, filename string, opt *gitlab.UploadWikiAttachmentOptions, options ...gitlab.RequestOptionFunc) (*gitlab.WikiAttachment, *gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{pid, content, filename, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "UploadWikiAttachment", varargs...)
+	ret0, _ := ret[0].(*gitlab.WikiAttachment)
+	ret1, _ := ret[1].(*gitlab.Response)
+	ret2, _ := ret[2].(error)
+	return ret0, ret1, ret2
+}
+
+// UploadWikiAttachment indicates an expected call of UploadWikiAttachment.
+func (mr *MockWikisServiceMockRecorder) UploadWikiAttachment(pid, content, filename, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{pid, content, filename, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadWikiAttachment", reflect.TypeOf((*MockWikisService)(nil).UploadWikiAttachment), varargs...)
 }

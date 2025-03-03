@@ -104,9 +104,9 @@ func (mr *MockGroupVariablesServiceMockRecorder) ListVariables(gid, opt any, opt
 }
 
 // RemoveVariable mocks base method.
-func (m *MockGroupVariablesService) RemoveVariable(gid any, key string, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockGroupVariablesService) RemoveVariable(gid any, key string, opt *gitlab.RemoveGroupVariableOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, key}
+	varargs := []any{gid, key, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -117,9 +117,9 @@ func (m *MockGroupVariablesService) RemoveVariable(gid any, key string, options 
 }
 
 // RemoveVariable indicates an expected call of RemoveVariable.
-func (mr *MockGroupVariablesServiceMockRecorder) RemoveVariable(gid, key any, options ...any) *gomock.Call {
+func (mr *MockGroupVariablesServiceMockRecorder) RemoveVariable(gid, key, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, key}, options...)
+	varargs := append([]any{gid, key, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RemoveVariable", reflect.TypeOf((*MockGroupVariablesService)(nil).RemoveVariable), varargs...)
 }
 

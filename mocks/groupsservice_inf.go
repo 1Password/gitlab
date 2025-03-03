@@ -230,9 +230,9 @@ func (mr *MockGroupsServiceMockRecorder) DeleteGroupCustomHeader(gid, hook, key 
 }
 
 // DeleteGroupHook mocks base method.
-func (m *MockGroupsService) DeleteGroupHook(pid any, hook int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockGroupsService) DeleteGroupHook(gid any, hook int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, hook}
+	varargs := []any{gid, hook}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -243,10 +243,30 @@ func (m *MockGroupsService) DeleteGroupHook(pid any, hook int, options ...gitlab
 }
 
 // DeleteGroupHook indicates an expected call of DeleteGroupHook.
-func (mr *MockGroupsServiceMockRecorder) DeleteGroupHook(pid, hook any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) DeleteGroupHook(gid, hook any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, hook}, options...)
+	varargs := append([]any{gid, hook}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteGroupHook", reflect.TypeOf((*MockGroupsService)(nil).DeleteGroupHook), varargs...)
+}
+
+// DeleteGroupHookURLVariable mocks base method.
+func (m *MockGroupsService) DeleteGroupHookURLVariable(gid any, hook int, key string, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{gid, hook, key}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "DeleteGroupHookURLVariable", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteGroupHookURLVariable indicates an expected call of DeleteGroupHookURLVariable.
+func (mr *MockGroupsServiceMockRecorder) DeleteGroupHookURLVariable(gid, hook, key any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{gid, hook, key}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteGroupHookURLVariable", reflect.TypeOf((*MockGroupsService)(nil).DeleteGroupHookURLVariable), varargs...)
 }
 
 // DeleteGroupLDAPLink mocks base method.
@@ -350,9 +370,9 @@ func (mr *MockGroupsServiceMockRecorder) DeleteGroupSAMLLink(gid, samlGroupName 
 }
 
 // DeleteServiceAccount mocks base method.
-func (m *MockGroupsService) DeleteServiceAccount(gid any, serviceAccount int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+func (m *MockGroupsService) DeleteServiceAccount(gid any, serviceAccount int, opt *gitlab.DeleteServiceAccountOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{gid, serviceAccount}
+	varargs := []any{gid, serviceAccount, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -363,9 +383,9 @@ func (m *MockGroupsService) DeleteServiceAccount(gid any, serviceAccount int, op
 }
 
 // DeleteServiceAccount indicates an expected call of DeleteServiceAccount.
-func (mr *MockGroupsServiceMockRecorder) DeleteServiceAccount(gid, serviceAccount any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) DeleteServiceAccount(gid, serviceAccount, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{gid, serviceAccount}, options...)
+	varargs := append([]any{gid, serviceAccount, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteServiceAccount", reflect.TypeOf((*MockGroupsService)(nil).DeleteServiceAccount), varargs...)
 }
 
@@ -391,9 +411,9 @@ func (mr *MockGroupsServiceMockRecorder) DownloadAvatar(gid any, options ...any)
 }
 
 // EditGroupHook mocks base method.
-func (m *MockGroupsService) EditGroupHook(pid any, hook int, opt *gitlab.EditGroupHookOptions, options ...gitlab.RequestOptionFunc) (*gitlab.GroupHook, *gitlab.Response, error) {
+func (m *MockGroupsService) EditGroupHook(gid any, hook int, opt *gitlab.EditGroupHookOptions, options ...gitlab.RequestOptionFunc) (*gitlab.GroupHook, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, hook, opt}
+	varargs := []any{gid, hook, opt}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -405,9 +425,9 @@ func (m *MockGroupsService) EditGroupHook(pid any, hook int, opt *gitlab.EditGro
 }
 
 // EditGroupHook indicates an expected call of EditGroupHook.
-func (mr *MockGroupsServiceMockRecorder) EditGroupHook(pid, hook, opt any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) EditGroupHook(gid, hook, opt any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, hook, opt}, options...)
+	varargs := append([]any{gid, hook, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "EditGroupHook", reflect.TypeOf((*MockGroupsService)(nil).EditGroupHook), varargs...)
 }
 
@@ -454,9 +474,9 @@ func (mr *MockGroupsServiceMockRecorder) GetGroup(gid, opt any, options ...any) 
 }
 
 // GetGroupHook mocks base method.
-func (m *MockGroupsService) GetGroupHook(pid any, hook int, options ...gitlab.RequestOptionFunc) (*gitlab.GroupHook, *gitlab.Response, error) {
+func (m *MockGroupsService) GetGroupHook(gid any, hook int, options ...gitlab.RequestOptionFunc) (*gitlab.GroupHook, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
-	varargs := []any{pid, hook}
+	varargs := []any{gid, hook}
 	for _, a := range options {
 		varargs = append(varargs, a)
 	}
@@ -468,9 +488,9 @@ func (m *MockGroupsService) GetGroupHook(pid any, hook int, options ...gitlab.Re
 }
 
 // GetGroupHook indicates an expected call of GetGroupHook.
-func (mr *MockGroupsServiceMockRecorder) GetGroupHook(pid, hook any, options ...any) *gomock.Call {
+func (mr *MockGroupsServiceMockRecorder) GetGroupHook(gid, hook any, options ...any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	varargs := append([]any{pid, hook}, options...)
+	varargs := append([]any{gid, hook}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetGroupHook", reflect.TypeOf((*MockGroupsService)(nil).GetGroupHook), varargs...)
 }
 
@@ -809,6 +829,26 @@ func (mr *MockGroupsServiceMockRecorder) RemoveBillableGroupMember(gid, user any
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RemoveBillableGroupMember", reflect.TypeOf((*MockGroupsService)(nil).RemoveBillableGroupMember), varargs...)
 }
 
+// ResendGroupHookEvent mocks base method.
+func (m *MockGroupsService) ResendGroupHookEvent(gid any, hook, hookEventID int, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{gid, hook, hookEventID}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ResendGroupHookEvent", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ResendGroupHookEvent indicates an expected call of ResendGroupHookEvent.
+func (mr *MockGroupsServiceMockRecorder) ResendGroupHookEvent(gid, hook, hookEventID any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{gid, hook, hookEventID}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ResendGroupHookEvent", reflect.TypeOf((*MockGroupsService)(nil).ResendGroupHookEvent), varargs...)
+}
+
 // RestoreGroup mocks base method.
 func (m *MockGroupsService) RestoreGroup(gid any, options ...gitlab.RequestOptionFunc) (*gitlab.Group, *gitlab.Response, error) {
 	m.ctrl.T.Helper()
@@ -890,6 +930,26 @@ func (mr *MockGroupsServiceMockRecorder) SetGroupCustomHeader(gid, hook, key, op
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]any{gid, hook, key, opt}, options...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetGroupCustomHeader", reflect.TypeOf((*MockGroupsService)(nil).SetGroupCustomHeader), varargs...)
+}
+
+// SetGroupHookURLVariable mocks base method.
+func (m *MockGroupsService) SetGroupHookURLVariable(gid any, hook int, key string, opt *gitlab.SetHookURLVariableOptions, options ...gitlab.RequestOptionFunc) (*gitlab.Response, error) {
+	m.ctrl.T.Helper()
+	varargs := []any{gid, hook, key, opt}
+	for _, a := range options {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "SetGroupHookURLVariable", varargs...)
+	ret0, _ := ret[0].(*gitlab.Response)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SetGroupHookURLVariable indicates an expected call of SetGroupHookURLVariable.
+func (mr *MockGroupsServiceMockRecorder) SetGroupHookURLVariable(gid, hook, key, opt any, options ...any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]any{gid, hook, key, opt}, options...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetGroupHookURLVariable", reflect.TypeOf((*MockGroupsService)(nil).SetGroupHookURLVariable), varargs...)
 }
 
 // ShareGroupWithGroup mocks base method.

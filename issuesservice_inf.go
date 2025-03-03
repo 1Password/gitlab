@@ -75,13 +75,13 @@ type IssuesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/issues.html#list-merge-requests-that-close-a-particular-issue-on-merge
-	ListMergeRequestsClosingIssue(pid interface{}, issue int, opt *ListMergeRequestsClosingIssueOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListMergeRequestsClosingIssue(pid interface{}, issue int, opt *ListMergeRequestsClosingIssueOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// ListMergeRequestsRelatedToIssue gets all the merge requests that are
 	// related to the issue
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/issues.html#list-merge-requests-related-to-issue
-	ListMergeRequestsRelatedToIssue(pid interface{}, issue int, opt *ListMergeRequestsRelatedToIssueOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	ListMergeRequestsRelatedToIssue(pid interface{}, issue int, opt *ListMergeRequestsRelatedToIssueOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// SetTimeEstimate sets the time estimate for a single project issue.
 	//
 	// GitLab API docs:

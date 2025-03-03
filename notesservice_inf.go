@@ -7,101 +7,106 @@ type NotesService interface {
 	// ListIssueNotes gets a list of all notes for a single issue.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#list-project-issue-notes
+	// https://docs.gitlab.com/api/notes/#list-project-issue-notes
 	ListIssueNotes(pid interface{}, issue int, opt *ListIssueNotesOptions, options ...RequestOptionFunc) ([]*Note, *Response, error)
 	// GetIssueNote returns a single note for a specific project issue.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#get-single-issue-note
+	// https://docs.gitlab.com/api/notes/#get-single-issue-note
 	GetIssueNote(pid interface{}, issue, note int, options ...RequestOptionFunc) (*Note, *Response, error)
 	// CreateIssueNote creates a new note to a single project issue.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#create-new-issue-note
+	// https://docs.gitlab.com/api/notes/#create-new-issue-note
 	CreateIssueNote(pid interface{}, issue int, opt *CreateIssueNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// UpdateIssueNote modifies existing note of an issue.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#modify-existing-issue-note
+	// https://docs.gitlab.com/api/notes/#modify-existing-issue-note
 	UpdateIssueNote(pid interface{}, issue, note int, opt *UpdateIssueNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// DeleteIssueNote deletes an existing note of an issue.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#delete-an-issue-note
+	// https://docs.gitlab.com/api/notes/#delete-an-issue-note
 	DeleteIssueNote(pid interface{}, issue, note int, options ...RequestOptionFunc) (*Response, error)
 	// ListSnippetNotes gets a list of all notes for a single snippet. Snippet
 	// notes are comments users can post to a snippet.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#list-all-snippet-notes
+	// https://docs.gitlab.com/api/notes/#list-all-snippet-notes
 	ListSnippetNotes(pid interface{}, snippet int, opt *ListSnippetNotesOptions, options ...RequestOptionFunc) ([]*Note, *Response, error)
 	// GetSnippetNote returns a single note for a given snippet.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#get-single-snippet-note
+	// https://docs.gitlab.com/api/notes/#get-single-snippet-note
 	GetSnippetNote(pid interface{}, snippet, note int, options ...RequestOptionFunc) (*Note, *Response, error)
 	// CreateSnippetNote creates a new note for a single snippet. Snippet notes are
 	// comments users can post to a snippet.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#create-new-snippet-note
+	// https://docs.gitlab.com/api/notes/#create-new-snippet-note
 	CreateSnippetNote(pid interface{}, snippet int, opt *CreateSnippetNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// UpdateSnippetNote modifies existing note of a snippet.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#modify-existing-snippet-note
+	// https://docs.gitlab.com/api/notes/#modify-existing-snippet-note
 	UpdateSnippetNote(pid interface{}, snippet, note int, opt *UpdateSnippetNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// DeleteSnippetNote deletes an existing note of a snippet.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#delete-a-snippet-note
+	// https://docs.gitlab.com/api/notes/#delete-a-snippet-note
 	DeleteSnippetNote(pid interface{}, snippet, note int, options ...RequestOptionFunc) (*Response, error)
 	// ListMergeRequestNotes gets a list of all notes for a single merge request.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#list-all-merge-request-notes
+	// https://docs.gitlab.com/api/notes/#list-all-merge-request-notes
 	ListMergeRequestNotes(pid interface{}, mergeRequest int, opt *ListMergeRequestNotesOptions, options ...RequestOptionFunc) ([]*Note, *Response, error)
 	// GetMergeRequestNote returns a single note for a given merge request.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#get-single-merge-request-note
+	// https://docs.gitlab.com/api/notes/#get-single-merge-request-note
 	GetMergeRequestNote(pid interface{}, mergeRequest, note int, options ...RequestOptionFunc) (*Note, *Response, error)
 	// CreateMergeRequestNote creates a new note for a single merge request.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#create-new-merge-request-note
+	// https://docs.gitlab.com/api/notes/#create-new-merge-request-note
 	CreateMergeRequestNote(pid interface{}, mergeRequest int, opt *CreateMergeRequestNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// UpdateMergeRequestNote modifies existing note of a merge request.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#modify-existing-merge-request-note
+	// https://docs.gitlab.com/api/notes/#modify-existing-merge-request-note
 	UpdateMergeRequestNote(pid interface{}, mergeRequest, note int, opt *UpdateMergeRequestNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// DeleteMergeRequestNote deletes an existing note of a merge request.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#delete-a-merge-request-note
+	// https://docs.gitlab.com/api/notes/#delete-a-merge-request-note
 	DeleteMergeRequestNote(pid interface{}, mergeRequest, note int, options ...RequestOptionFunc) (*Response, error)
 	// ListEpicNotes gets a list of all notes for a single epic.
+	// Deprecated: use Work Items API instead.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#list-all-epic-notes
+	// https://docs.gitlab.com/api/notes/#list-all-epic-notes
 	ListEpicNotes(gid interface{}, epic int, opt *ListEpicNotesOptions, options ...RequestOptionFunc) ([]*Note, *Response, error)
 	// GetEpicNote returns a single note for an epic.
+	// Deprecated: use Work Items API instead.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#get-single-epic-note
+	// https://docs.gitlab.com/api/notes/#get-single-epic-note
 	GetEpicNote(gid interface{}, epic, note int, options ...RequestOptionFunc) (*Note, *Response, error)
 	// CreateEpicNote creates a new note for a single merge request.
+	// Deprecated: use Work Items API instead.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/notes.html#create-new-epic-note
+	// https://docs.gitlab.com/api/notes/#create-new-epic-note
 	CreateEpicNote(gid interface{}, epic int, opt *CreateEpicNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// UpdateEpicNote modifies existing note of an epic.
+	// Deprecated: use Work Items API instead.
 	//
-	// https://docs.gitlab.com/ee/api/notes.html#modify-existing-epic-note
+	// https://docs.gitlab.com/api/notes/#modify-existing-epic-note
 	UpdateEpicNote(gid interface{}, epic, note int, opt *UpdateEpicNoteOptions, options ...RequestOptionFunc) (*Note, *Response, error)
 	// DeleteEpicNote deletes an existing note of a merge request.
+	// Deprecated: use Work Items API instead.
 	//
-	// https://docs.gitlab.com/ee/api/notes.html#delete-an-epic-note
+	// https://docs.gitlab.com/api/notes/#delete-an-epic-note
 	DeleteEpicNote(gid interface{}, epic, note int, options ...RequestOptionFunc) (*Response, error)
 }

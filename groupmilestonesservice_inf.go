@@ -39,7 +39,7 @@ type GroupMilestonesService interface {
 	//
 	// GitLab API docs:
 	// https://docs.gitlab.com/ee/api/group_milestones.html#get-all-merge-requests-assigned-to-a-single-milestone
-	GetGroupMilestoneMergeRequests(gid interface{}, milestone int, opt *GetGroupMilestoneMergeRequestsOptions, options ...RequestOptionFunc) ([]*MergeRequest, *Response, error)
+	GetGroupMilestoneMergeRequests(gid interface{}, milestone int, opt *GetGroupMilestoneMergeRequestsOptions, options ...RequestOptionFunc) ([]*BasicMergeRequest, *Response, error)
 	// GetGroupMilestoneBurndownChartEvents gets all merge requests assigned to a
 	// single group milestone.
 	//

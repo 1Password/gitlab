@@ -81,12 +81,12 @@ type UsersService interface {
 	GetSSHKeyForUser(user int, key int, options ...RequestOptionFunc) (*SSHKey, *Response, error)
 	// AddSSHKey creates a new key owned by the currently authenticated user.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/users.html#add-ssh-key
+	// GitLab API docs: https://docs.gitlab.com/ee/api/user_keys.html#add-an-ssh-key
 	AddSSHKey(opt *AddSSHKeyOptions, options ...RequestOptionFunc) (*SSHKey, *Response, error)
 	// AddSSHKeyForUser creates new key owned by specified user. Available only for
 	// admin.
 	//
-	// GitLab API docs: https://docs.gitlab.com/ee/api/users.html#add-ssh-key-for-user
+	// GitLab API docs: https://docs.gitlab.com/ee/api/user_keys.html#add-an-ssh-key-for-a-user
 	AddSSHKeyForUser(user int, opt *AddSSHKeyOptions, options ...RequestOptionFunc) (*SSHKey, *Response, error)
 	// DeleteSSHKey deletes key owned by currently authenticated user. This is an
 	// idempotent function and calling it on a key that is already deleted or not
@@ -227,12 +227,12 @@ type UsersService interface {
 	// CreatePersonalAccessToken creates a personal access token.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/users.html#create-a-personal-access-token
+	// https://docs.gitlab.com/api/user_tokens/#create-a-personal-access-token-for-a-user
 	CreatePersonalAccessToken(user int, opt *CreatePersonalAccessTokenOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// CreatePersonalAccessTokenForCurrentUser creates a personal access token with limited scopes for the currently authenticated user.
 	//
 	// GitLab API docs:
-	// https://docs.gitlab.com/ee/api/users.html#create-a-personal-access-token-with-limited-scopes-for-the-currently-authenticated-user
+	// https://docs.gitlab.com/api/user_tokens/#create-a-personal-access-token
 	CreatePersonalAccessTokenForCurrentUser(opt *CreatePersonalAccessTokenForCurrentUserOptions, options ...RequestOptionFunc) (*PersonalAccessToken, *Response, error)
 	// GetUserActivities retrieves user activities (admin only)
 	//

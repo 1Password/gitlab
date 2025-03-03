@@ -71,7 +71,9 @@ type client struct {
 	groupMembersService                 GroupMembersService
 	groupMilestonesService              GroupMilestonesService
 	groupProtectedEnvironmentsService   GroupProtectedEnvironmentsService
+	groupReleasesService                GroupReleasesService
 	groupRepositoryStorageMoveService   GroupRepositoryStorageMoveService
+	groupSCIMService                    GroupSCIMService
 	groupSSHCertificatesService         GroupSSHCertificatesService
 	groupSecuritySettingsService        GroupSecuritySettingsService
 	groupVariablesService               GroupVariablesService
@@ -120,6 +122,7 @@ type client struct {
 	projectMembersService               ProjectMembersService
 	projectMirrorService                ProjectMirrorService
 	projectRepositoryStorageMoveService ProjectRepositoryStorageMoveService
+	projectSecuritySettingsService      ProjectSecuritySettingsService
 	projectSnippetsService              ProjectSnippetsService
 	projectTemplatesService             ProjectTemplatesService
 	projectVariablesService             ProjectVariablesService
@@ -141,6 +144,7 @@ type client struct {
 	resourceWeightEventsService         ResourceWeightEventsService
 	runnersService                      RunnersService
 	searchService                       SearchService
+	secureFilesService                  SecureFilesService
 	servicesService                     ServicesService
 	settingsService                     SettingsService
 	sidekiqService                      SidekiqService
@@ -381,9 +385,19 @@ func (c *client) GroupProtectedEnvironments() GroupProtectedEnvironmentsService 
 	return c.groupProtectedEnvironmentsService
 }
 
+// GroupReleases returns the [GroupReleasesService] service for the client.
+func (c *client) GroupReleases() GroupReleasesService {
+	return c.groupReleasesService
+}
+
 // GroupRepositoryStorageMove returns the [GroupRepositoryStorageMoveService] service for the client.
 func (c *client) GroupRepositoryStorageMove() GroupRepositoryStorageMoveService {
 	return c.groupRepositoryStorageMoveService
+}
+
+// GroupSCIM returns the [GroupSCIMService] service for the client.
+func (c *client) GroupSCIM() GroupSCIMService {
+	return c.groupSCIMService
 }
 
 // GroupSSHCertificates returns the [GroupSSHCertificatesService] service for the client.
@@ -626,6 +640,11 @@ func (c *client) ProjectRepositoryStorageMove() ProjectRepositoryStorageMoveServ
 	return c.projectRepositoryStorageMoveService
 }
 
+// ProjectSecuritySettings returns the [ProjectSecuritySettingsService] service for the client.
+func (c *client) ProjectSecuritySettings() ProjectSecuritySettingsService {
+	return c.projectSecuritySettingsService
+}
+
 // ProjectSnippets returns the [ProjectSnippetsService] service for the client.
 func (c *client) ProjectSnippets() ProjectSnippetsService {
 	return c.projectSnippetsService
@@ -729,6 +748,11 @@ func (c *client) Runners() RunnersService {
 // Search returns the [SearchService] service for the client.
 func (c *client) Search() SearchService {
 	return c.searchService
+}
+
+// SecureFiles returns the [SecureFilesService] service for the client.
+func (c *client) SecureFiles() SecureFilesService {
+	return c.secureFilesService
 }
 
 // Services returns the [ServicesService] service for the client.
@@ -855,7 +879,9 @@ func FromClient(gl *gitlab.Client) Client {
 		groupMembersService:                 gl.GroupMembers,
 		groupMilestonesService:              gl.GroupMilestones,
 		groupProtectedEnvironmentsService:   gl.GroupProtectedEnvironments,
+		groupReleasesService:                gl.GroupReleases,
 		groupRepositoryStorageMoveService:   gl.GroupRepositoryStorageMove,
+		groupSCIMService:                    gl.GroupSCIM,
 		groupSSHCertificatesService:         gl.GroupSSHCertificates,
 		groupSecuritySettingsService:        gl.GroupSecuritySettings,
 		groupVariablesService:               gl.GroupVariables,
@@ -904,6 +930,7 @@ func FromClient(gl *gitlab.Client) Client {
 		projectMembersService:               gl.ProjectMembers,
 		projectMirrorService:                gl.ProjectMirrors,
 		projectRepositoryStorageMoveService: gl.ProjectRepositoryStorageMove,
+		projectSecuritySettingsService:      gl.ProjectSecuritySettings,
 		projectSnippetsService:              gl.ProjectSnippets,
 		projectTemplatesService:             gl.ProjectTemplates,
 		projectVariablesService:             gl.ProjectVariables,
@@ -925,6 +952,7 @@ func FromClient(gl *gitlab.Client) Client {
 		resourceWeightEventsService:         gl.ResourceWeightEvents,
 		runnersService:                      gl.Runners,
 		searchService:                       gl.Search,
+		secureFilesService:                  gl.SecureFiles,
 		servicesService:                     gl.Services,
 		settingsService:                     gl.Settings,
 		sidekiqService:                      gl.Sidekiq,
